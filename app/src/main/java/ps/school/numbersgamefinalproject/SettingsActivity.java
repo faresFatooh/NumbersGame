@@ -18,7 +18,9 @@ public class SettingsActivity extends AppCompatActivity {
         change = findViewById(R.id.change);
         clear = findViewById(R.id.clear);
 
-// jkhkjhkjhkjhkjhkjhkjhkjhkjhjkhkjhjkhjkhkj
+
+
+
         show.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
