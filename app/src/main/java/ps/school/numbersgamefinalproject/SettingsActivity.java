@@ -17,7 +17,7 @@ public class SettingsActivity extends AppCompatActivity {
         show_last = findViewById(R.id.show_last);
         change = findViewById(R.id.change);
         clear = findViewById(R.id.clear);
-
+//
 
 
 
