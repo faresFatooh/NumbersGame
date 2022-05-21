@@ -235,8 +235,8 @@
             android:layout_marginTop="25dp"
             android:background="@drawable/shep_botten"
             android:text="@string/save"
-            android:textSize="20sp"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="20sp" />
     </LinearLayout>
 
 
