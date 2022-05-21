@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">Numbers Game</string>
+    <string name="Full_name">Full name</string>
+    <string name="email_address">Email Address</string>
+    <string name="user_name">User Name</string>
+    <string name="enter">Enter a number</string>
+    <string name="password">password</string>
+    <string name="check">Check</string>
+    <string name="new_game">new game</string>
+    <string name="male">male</string>
+    <string name="Female">Female</string>
+    <string name="save">Save</string>
+    <string name="r_password">Re password</string>
+    <string name="Birthdate">birthdate</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="remember">Remember me ?</string>
+    <string name="Score">Score</string>
+    <string name="welcome">Welcome</string>
+    <string name="name">name.........</string>
+    <string name="age">age</string>
+    <string name="show">Show all games</string>
+    <string name="show_last">Show last game date</string>
+    <string name="change">Change password</string>
+    <string name="clear">Clear game history</string>
+    <string name="full">full name</string>
+    <string name="time">Time and date</string>
+    <string name="settings">Settings</string>
+    <string name="login_out">Login out</string>
+    <string name="enterName">the User Name can\'t be Empty !</string>
+    <string name="userpasseord">the password can\'t be Empty !</string>
+    <string name="userpasseordre"> write again password !</string>
+    <string name="enterfullname">the full name can\'t be Empty !</string>
+    <string name="emailAddress">the emailAddress can\'t be Empty !</string>
+    <string name="gender">the gender can\'t be Empty !</string>
+    <string name="Gender">Gender</string>
+    <string name="comformPassword">password doesn\'t match</string>
+
+    <string-array name="contre">
+
+        <item>Enter contre</item>
+        <item>palestine</item>
+        <item>Egypt</item>
+        <item>Quoter</item>
+        <item>SaudiArabia</item>
+        <item>Algeria</item>
+        <item>Kuwait</item>
+        <item>Lebanon</item>
+        <item>Mauritania</item>
+        <item>Morocco</item>
+        <item>Sudan</item>
+        <item>Tunisia</item>
+        <item>Syrian</item>
+        <item>Iraq</item>
+        <item>Yemen</item>
+        <item>Oman</item>
+        <item>Jordan</item>
+        <item>USA</item>
+
+    </string-array>
+
+</resources>

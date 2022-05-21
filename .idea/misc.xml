@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Compulife.Co/Desktop/NumbersGameFinalProject/app/src/main/res/drawable-v24/ic_baseline_dangerous_24.xml" value="0.1" />
+        <entry key="..\:/Users/Compulife.Co/Desktop/NumbersGameFinalProject/app/src/main/res/drawable/email.xml" value="0.137" />
+        <entry key="..\:/Users/Compulife.Co/Desktop/NumbersGameFinalProject/app/src/main/res/drawable/ic_baseline_dangerous_24.xml" value="0.1" />
+        <entry key="..\:/Users/Compulife.Co/Desktop/NumbersGameFinalProject/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.1" />
+        <entry key="..\:/Users/Compulife.Co/Desktop/NumbersGameFinalProject/app/src/main/res/drawable/ic_baseline_videogame_asset_24.xml" value="0.1" />
+        <entry key="..\:/Users/Compulife.Co/Desktop/NumbersGameFinalProject/app/src/main/res/drawable/ic_launcher_background.xml" value="0.137" />
+        <entry key="..\:/Users/Compulife.Co/Desktop/NumbersGameFinalProject/app/src/main/res/drawable/ic_twotone_person_add_alt_1_24.xml" value="0.1" />
+        <entry key="..\:/Users/Compulife.Co/Desktop/NumbersGameFinalProject/app/src/main/res/drawable/ic_user.xml" value="0.1" />
+        <entry key="..\:/Users/Compulife.Co/Desktop/NumbersGameFinalProject/app/src/main/res/drawable/password.xml" value="0.1" />
+        <entry key="..\:/Users/Compulife.Co/Desktop/NumbersGameFinalProject/app/src/main/res/drawable/shep.xml" value="0.1" />
+        <entry key="..\:/Users/Compulife.Co/Desktop/NumbersGameFinalProject/app/src/main/res/drawable/shep2.xml" value="0.1" />
+        <entry key="..\:/Users/Compulife.Co/Desktop/NumbersGameFinalProject/app/src/main/res/drawable/shep3.xml" value="0.1" />
+        <entry key="..\:/Users/Compulife.Co/Desktop/NumbersGameFinalProject/app/src/main/res/drawable/shep4.xml" value="0.1" />
+        <entry key="..\:/Users/Compulife.Co/Desktop/NumbersGameFinalProject/app/src/main/res/drawable/shep5.xml" value="0.1" />
+        <entry key="..\:/Users/Compulife.Co/Desktop/NumbersGameFinalProject/app/src/main/res/drawable/shep_botten.xml" value="0.1" />
+        <entry key="..\:/Users/Compulife.Co/Desktop/NumbersGameFinalProject/app/src/main/res/drawable/shep_game.xml" value="0.1" />
+        <entry key="..\:/Users/Compulife.Co/Desktop/NumbersGameFinalProject/app/src/main/res/drawable/shep_game2.xml" value="0.1" />
+        <entry key="..\:/Users/Compulife.Co/Desktop/NumbersGameFinalProject/app/src/main/res/drawable/shep_game3.xml" value="0.1" />
+        <entry key="..\:/Users/Compulife.Co/Desktop/NumbersGameFinalProject/app/src/main/res/drawable/shep_setings.xml" value="0.1" />
+        <entry key="..\:/Users/Compulife.Co/Desktop/NumbersGameFinalProject/app/src/main/res/drawable/shep_stings_btn.xml" value="0.1" />
+        <entry key="..\:/Users/Compulife.Co/Desktop/NumbersGameFinalProject/app/src/main/res/layout/activity_game.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/Compulife.Co/Desktop/NumbersGameFinalProject/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/Users/Compulife.Co/Desktop/NumbersGameFinalProject/app/src/main/res/layout/activity_main.xml" value="0.2604166666666667" />
+        <entry key="..\:/Users/Compulife.Co/Desktop/NumbersGameFinalProject/app/src/main/res/layout/activity_register.xml" value="0.1" />
+        <entry key="..\:/Users/Compulife.Co/Desktop/NumbersGameFinalProject/app/src/main/res/layout/activity_settings.xml" value="0.1" />
+        <entry key="..\:/Users/Compulife.Co/Desktop/NumbersGameFinalProject/app/src/main/res/menu/menu.xml" value="0.1" />
+        <entry key="..\:/Users/Compulife.Co/Desktop/NumbersGameFinalProject/app/src/main/res/menu/menu_tools.xml" value="0.2734375" />
+        <entry key="..\:/Users/Compulife.Co/Desktop/NumbersGameFinalProject/app/src/main/res/menu/ss.xml" value="0.1" />
+        <entry key="..\:/Users/Compulife.Co/Desktop/NumbersGameFinalProject/app/src/main/res/menu/tool_menu.xml" value="0.1" />
+        <entry key="..\:/Users/Compulife.Co/Desktop/NumbersGameFinalProject/app/src/main/res/menu/tooll_menu.xml" value="0.1" />
+        <entry key="..\:/Users/Compulife.Co/Desktop/NumbersGameFinalProject/app/src/main/res/menu/tools_menu.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

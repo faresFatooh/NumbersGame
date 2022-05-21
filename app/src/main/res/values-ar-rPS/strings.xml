@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="enterName">لا يمكن ترك حقل اسم المسخدم فارغاً !</string>
+    <string name="userpasseord">لا يمكن ترك حقل كلمة المرور فارغاً !</string>
+    <string name="userpasseordre">أعد كتابة كلمة المرور !</string>
+    <string name="enterfullname">لايمكن  ترك حقل الإسم فارغا !</string>
+    <string name="emailAddress">لايمكن  ترك حقل البريد الألكتروني فارغا !</string>
+    <string name="gender">لايمكن  ترك حقل الجنس فارغا !</string>
+    <string name="Gender">الجنس</string>
+    <string name="app_name">لعبة سلسلة األرقام</string>
+    <string name="Full_name">الأسم الكامل</string>
+    <string name="email_address">بريدك الإلكتروني</string>
+    <string name="user_name">إسم المستخم</string>
+    <string name="enter">أدخل العدد</string>
+    <string name="password">كلمة المرور</string>
+    <string name="check">فحص</string>
+    <string name="new_game">مبارة جديدة</string>
+    <string name="male">ذكر</string>
+    <string name="Female">أنثى</string>
+    <string name="save">حفظ</string>
+    <string name="r_password">كلمة المرور</string>
+    <string name="Birthdate">الميلاد</string>
+    <string name="login">تسجيل دخول</string>
+    <string name="register">واجهة التسجيل تسجيل</string>
+    <string name="remember">تذكرني ?</string>
+    <string name="Score">نقاط</string>
+    <string name="welcome">مرحبا</string>
+    <string name="name">الإسم.......</string>
+    <string name="show">إظهار جميع المباريات</string>
+    <string name="show_last">إظهار أخر موعد مباراة</string>
+    <string name="change">تغير كلمة المرور</string>
+    <string name="clear">حذف بيانات اللعبة</string>
+    <string name="full">الأسم كامل</string>
+    <string name="time">الوقت والتاريخ</string>
+    <string name="settings">الإعدادات</string>
+    <string name="login_out">تسجيل خروج</string>
+    <string name="age">العمر</string>
+    <string name="comformPassword">خطأ في كلمة المرور</string>
+
+    <string-array name="contre">
+        <item>اختر الدولة</item>
+        <item>فلسطين</item>
+        <item>مصر</item>
+        <item>قطر</item>
+        <item>السعودية</item>
+        <item>الجزائر</item>
+        <item>الكويت</item>
+        <item>لبنان</item>
+        <item>موريتانيا</item>
+        <item>المغرب</item>
+        <item>السودان</item>
+        <item>تةنس</item>
+        <item>سوريا</item>
+        <item>العراق</item>
+        <item>اليمن</item>
+        <item>عمان</item>
+        <item>الأردن</item>
+        <item>الولايات المتحدة الأمريكية</item>
+
+    </string-array>
+
+
+</resources>
