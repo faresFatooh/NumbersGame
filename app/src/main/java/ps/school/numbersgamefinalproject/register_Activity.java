@@ -55,7 +55,6 @@ public class register_Activity extends AppCompatActivity {
         save = findViewById(R.id.save);
         dateBaker = findViewById(R.id.date_baker_register);
         DB = new DBHelper(this);
-
         dateBaker.setText(getTodaysDate());
         initDatePicker();
         edit_img.setOnClickListener(new View.OnClickListener() {
