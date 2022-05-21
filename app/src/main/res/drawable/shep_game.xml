@@ -8,8 +8,8 @@
 
     <gradient
         android:centerX="60%"
-        android:startColor="#4331FE"
-        android:endColor="#F1313D"
+        android:startColor="#A812B8"
+        android:endColor="#A812B8"
         android:type="linear"
         />
 

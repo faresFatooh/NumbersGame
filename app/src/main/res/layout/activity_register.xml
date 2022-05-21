@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/shep_stings_btn"
+    android:background="@drawable/imege"
     android:focusableInTouchMode="true"
     android:gravity="center"
     tools:context=".register_Activity">
@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:orientation="vertical"
         android:paddingLeft="15dp"
         android:paddingRight="15dp">
@@ -55,7 +55,7 @@
                 android:layout_marginStart="10dp"
 
                 android:src="@drawable/ic_baseline_person_24"
-                app:civ_border_color="@color/blacky"
+                app:civ_border_color="@color/background"
                 app:civ_border_width="2dp" />
         </LinearLayout>
 
@@ -125,7 +125,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="2dp"
-                    android:background="@drawable/shep2"
+                    android:background="@drawable/shape_gender"
                     android:backgroundTint="@color/white"
                     android:drawableStart="@drawable/password"
                     android:drawablePadding="8dp"
@@ -152,7 +152,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="2dp"
-                    android:background="@drawable/shep2"
+                    android:background="@drawable/shape_gender2"
                     android:backgroundTint="@color/white"
                     android:drawableStart="@drawable/password"
                     android:drawablePadding="8dp"
@@ -184,16 +184,13 @@
             android:id="@+id/spinner_country"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="3dp"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="15dp"
             android:background="@drawable/shep"
             android:backgroundTint="@color/white"
-            android:contextClickable="true"
-
             android:entries="@array/contre"
             android:padding="10dp"
-            android:textColorHint="@color/blacky" />
+            android:textColorHint="@color/black" />
 
         <RadioGroup
             android:id="@+id/radio_group"
@@ -209,10 +206,10 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="3dp"
                 android:layout_weight="1"
-                android:background="@drawable/shep"
+                android:background="@drawable/shape_gender"
                 android:backgroundTint="@color/white"
                 android:text="@string/male"
-                android:textColorHint="@color/blacky"
+                android:textColorHint="@color/black"
                 android:textSize="20sp" />
 
             <RadioButton
@@ -221,10 +218,10 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="3dp"
                 android:layout_weight="1"
-                android:background="@drawable/shep"
+                android:background="@drawable/shape_gender2"
                 android:backgroundTint="@color/white"
                 android:text="@string/Female"
-                android:textColorHint="@color/blacky"
+                android:textColorHint="@color/black"
                 android:textSize="20sp" />
 
         </RadioGroup>
@@ -235,9 +232,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="25dp"
             android:background="@drawable/shep_botten"
             android:text="@string/save"
+            android:textSize="20sp"
             android:textColor="@color/white" />
     </LinearLayout>
 

@@ -24,7 +24,6 @@ public class SettingsActivity extends AppCompatActivity {
         show.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                show.setError("gr");
             }
         });
 

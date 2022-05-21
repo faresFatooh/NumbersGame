@@ -74,6 +74,9 @@ public class Login_Activity extends AppCompatActivity {
                         myEdit.apply();
                         startActivity(intent);
                         finish();
+                    }else {
+                        input_user_name_login.setError("theirs no user name registered");
+                        input_password_login.setError("theirs no password name registered");
                     }
                 }
 

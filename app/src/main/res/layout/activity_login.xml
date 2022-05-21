@@ -4,19 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/shep_stings_btn"
+    android:background="@drawable/imege"
     android:focusableInTouchMode="true"
     android:gravity="center"
     tools:context=".Login_Activity">
 
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="-90dp"
-        app:srcCompat="@drawable/numbers" />
+
 
     <ImageView
         android:id="@+id/logo"
@@ -26,7 +20,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:backgroundTint="@color/yellow"
-        android:src="@drawable/ic_baseline_videogame_asset_24" />
+        android:src="@drawable/logo" />
 
     <LinearLayout
         android:layout_width="match_parent"
