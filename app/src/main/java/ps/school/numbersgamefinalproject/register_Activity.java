@@ -14,7 +14,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -22,14 +21,17 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
+
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.Calendar;
 
 public class register_Activity extends AppCompatActivity {
     ImageView edit_img;
-    EditText full_name, email_address, user_name, _password, password_re;
     RadioGroup radio_group;
+    TextInputLayout i_full_name, i_email_address, i_user_name, i_password, i_password_re;
     RadioButton male, female;
     Button save;
     String date;
@@ -43,11 +45,12 @@ public class register_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         edit_img = findViewById(R.id.edit_img);
-        full_name = findViewById(R.id.full_name);
-        email_address = findViewById(R.id.email_address);
-        user_name = findViewById(R.id.user_name);
-        _password = findViewById(R.id.password);
-        password_re = findViewById(R.id.password_re);
+        i_full_name = findViewById(R.id.full_name);
+        i_email_address = findViewById(R.id.email_address);
+        i_user_name = findViewById(R.id.user_name);
+        i_password = findViewById(R.id.password);
+        i_password_re = findViewById(R.id.password_re);
+
         radio_group = findViewById(R.id.radio_group);
         spinner_country = findViewById(R.id.spinner_country);
         male = findViewById(R.id.male);
@@ -81,11 +84,11 @@ public class register_Activity extends AppCompatActivity {
             public void onClick(View view) {
 
 
-                String userName = user_name.getText().toString().trim();
-                String emailAddress = email_address.getText().toString().trim();
-                String fullName = full_name.getText().toString().trim();
-                String password_now = _password.getText().toString();
-                String rePassword = password_re.getText().toString();
+                String userName = i_user_name.getEditText().getText().toString().trim();
+                String emailAddress = i_email_address.getEditText().getText().toString().trim();
+                String fullName = i_full_name.getEditText().getText().toString().trim();
+                String password_now = i_password.getEditText().getText().toString();
+                String rePassword = i_password_re.getEditText().getText().toString();
 
 
                 if (validateUserName(userName) && validateFullName(fullName) && validateEmail(emailAddress) && validatePassword(password_now, rePassword)) {
@@ -222,30 +225,30 @@ public class register_Activity extends AppCompatActivity {
     private Boolean validateUserName(String userName) {
 
         if (userName.isEmpty()) {
-            user_name.setError(getString(R.string.enterName));
+            i_user_name.setError(getString(R.string.enterName));
             return false;
         }
-        user_name.setError(null);
+        i_user_name.setError(null);
         return true;
     }
 
     private Boolean validateFullName(String fullName) {
 
         if (fullName.isEmpty()) {
-            full_name.setError(getString(R.string.enterfullname));
+            i_full_name.setError(getString(R.string.enterfullname));
             return false;
         }
-        full_name.setError(null);
+        i_full_name.setError(null);
         return true;
     }
 
     private Boolean validateEmail(String email) {
 
         if (email.isEmpty()) {
-            email_address.setError(getString(R.string.emailAddress));
+            i_email_address.setError(getString(R.string.emailAddress));
             return false;
         }
-        email_address.setError(null);
+        i_email_address.setError(null);
         return true;
     }
 
@@ -266,24 +269,24 @@ public class register_Activity extends AppCompatActivity {
 
     private Boolean validatePassword(String password_now, String rePassword) {
         if (password_now.isEmpty()) {
-            _password.setError(getString(R.string.userpasseord));
+            i_password.setError(getString(R.string.userpasseord));
             return false;
         }
         if (rePassword.isEmpty()) {
-            password_re.setError(getString(R.string.userpasseordre));
+            i_password_re.setError(getString(R.string.userpasseordre));
             return false;
         }
         if (!(password_now.equals(rePassword))) {
-            password_re.setError(getString(R.string.comformPassword));
-            _password.setError(getString(R.string.comformPassword));
+            i_password_re.setError(getString(R.string.comformPassword));
+            i_password.setError(getString(R.string.comformPassword));
             return false;
         }
         if (password_now.length() < 8) {
-            _password.setError("Password is too short (Min. 8 Characters)");
+            i_password.setError("Password is too short (Min. 8 Characters)");
             return false;
         }
-        _password.setError(null);
-        password_re.setError(null);
+        i_password.setError(null);
+        i_password_re.setError(null);
         return true;
     }
     //
