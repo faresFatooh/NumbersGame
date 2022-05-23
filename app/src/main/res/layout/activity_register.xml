@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:focusableInTouchMode="true"
     android:background="@drawable/imege"
+    android:focusableInTouchMode="true"
     android:gravity="center"
     tools:context="register_Activity">
 
