@@ -196,7 +196,3 @@ public class Game_Activity extends AppCompatActivity {
         inflater.inflate(R.menu.tools_menu, menu);
     }
 }
-
-
-
-
