@@ -6,10 +6,13 @@
 
         />
 
+
     <gradient
-        android:centerX="60%"
-        android:startColor="#A812B8"
-        android:endColor="#A812B8"
+        android:centerX="50%"
+        android:startColor="#F6308D"
+        android:centerColor="#F6308D"
+        android:endColor="#F6308D"
+
         android:type="linear"
         />
 

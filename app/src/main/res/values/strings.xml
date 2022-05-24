@@ -17,7 +17,7 @@
     <string name="remember">Remember me ?</string>
     <string name="Score">Score</string>
     <string name="welcome">Welcome</string>
-    <string name="name">name.........</string>
+    <string name="name">name</string>
     <string name="age">age</string>
     <string name="show">Show all games</string>
     <string name="show_last">Show last game date</string>
@@ -35,6 +35,10 @@
     <string name="gender">the gender can\'t be Empty !</string>
     <string name="Gender">Gender</string>
     <string name="comformPassword">password doesn\'t match</string>
+    <string name="sign_in">Sign in</string>
+    <string name="sign_up">Sign up</string>
+    <string name="dialogue_delete">CAN DELETE ALL GAMES RECORDED IN DATABASE</string>
+    <string name="changing_password_settings">password changing</string>
 
     <string-array name="contre">
 

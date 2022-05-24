@@ -6,14 +6,14 @@
         android:radius="8dp"
         />
 
-    <gradient
-        android:centerX="50%"
-        android:startColor="#F6308D"
-        android:centerColor="#F6308D"
-        android:endColor="#F6308D"
+        <gradient
+            android:centerX="50%"
+            android:startColor="#F6308D"
+            android:centerColor="#F6308D"
+            android:endColor="#F6308D"
 
-        android:type="linear"
-        />
+            android:type="linear"
+            />
 
     <size
         android:width="100dp"
