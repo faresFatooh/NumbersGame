@@ -1,5 +1,8 @@
 package ps.school.numbersgamefinalproject;
 
+import static android.webkit.ConsoleMessage.MessageLevel.LOG;
+
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -16,7 +19,7 @@ class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase MyDB) {
         MyDB.execSQL("create Table users(username TEXT primary key, password TEXT)");
-        MyDB.execSQL("create Table info(username TEXT primary key, Fullname TEXT ,Email TEXT , Birthdate TEXT , Caontry TEXT , Gender TEXT)");
+        MyDB.execSQL("create Table info(username TEXT primary key, Fullname TEXT ,Email TEXT , Birthdate TEXT , Caontry TEXT , Gender TEXT,Score TEXT)");
     }
 
     @Override
@@ -36,7 +39,7 @@ class DBHelper extends SQLiteOpenHelper {
             return true;
     }
 
-    public Boolean insertDetails(String username, String fullname, String email, String birthdate, String country, String gender) {
+    public Boolean insertDetails(String username, String fullname, String email, String birthdate, String country, String gender, String Score) {
         SQLiteDatabase MyDB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("username", username);
@@ -45,6 +48,7 @@ class DBHelper extends SQLiteOpenHelper {
         contentValues.put("Birthdate", birthdate);
         contentValues.put("Caontry", country);
         contentValues.put("Gender", gender);
+        contentValues.put("Score", Score);
         long result = MyDB.insert("info", null, contentValues);
         if (result == -1) return false;
         else
@@ -67,5 +71,38 @@ class DBHelper extends SQLiteOpenHelper {
             return true;
         else
             return false;
+    }
+
+    public String getName(String username) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("Select * from info where username = ?", new String[]{username});
+        cursor.moveToFirst();
+        return cursor.getString(0);
+    }
+
+    public String getAge(String username) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("Select * from info where username = ?", new String[]{username});
+        cursor.moveToFirst();
+        return cursor.getString(3);
+    }
+
+    public String getScore(String username) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("Select * from info where username = ?", new String[]{username});
+        cursor.moveToFirst();
+        return cursor.getString(6);
+    }
+
+    public long update(String username) {
+        int x = Integer.parseInt(getScore(username));
+        SQLiteDatabase db = this.getReadableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("Score", x + 1);
+
+        return db.update("info", contentValues, "username =?", new String[]{username});
     }
 }

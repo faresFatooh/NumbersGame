@@ -96,6 +96,9 @@ public class register_Activity extends AppCompatActivity {
 
                     if (validateGender().equals("null")) {
                         Toast.makeText(getApplicationContext(), R.string.gender, Toast.LENGTH_SHORT).show();
+                        String gender = String.valueOf(radio_group.getCheckedRadioButtonId());
+                        Toast.makeText(getApplicationContext(), gender, Toast.LENGTH_SHORT).show();
+
                     } else {
                         Boolean insert = false;
                         Boolean checkuser = DB.checkusername(userName);
@@ -104,7 +107,7 @@ public class register_Activity extends AppCompatActivity {
                         } else {
                             Toast.makeText(getApplicationContext(), "the user name is already Exists!!", Toast.LENGTH_SHORT).show();
                         }
-                        Boolean insertDetails = DB.insertDetails(userName, fullName, emailAddress, date, "", validateGender());
+                        Boolean insertDetails = DB.insertDetails(userName, fullName, emailAddress, date, "", validateGender(),"0");
                         if (insert && insertDetails) {
                             Toast.makeText(getApplicationContext(), "Registered successfully", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getApplicationContext(), Login_Activity.class);
@@ -255,10 +258,10 @@ public class register_Activity extends AppCompatActivity {
     private String validateGender() {
 
         String gender = String.valueOf(radio_group.getCheckedRadioButtonId());
-        if (gender.equals("2131362056")) {
+        if (gender.equals("2131362057")) {
 
             return "male";
-        } else if (gender.equals("2131361987")) {
+        } else if (gender.equals("2131361988")) {
             return "female";
         } else if (gender.equals("-1")) {
             return "null";

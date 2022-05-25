@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/imege"
+    android:background="@drawable/shep_setings"
     android:orientation="vertical"
     tools:context=".Game_Activity">
 
@@ -12,25 +12,25 @@
         android:id="@+id/toolbar2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
+        android:background="#FD45A3"
         android:minHeight="?attr/actionBarSize"
+        android:subtitleTextAppearance="@style/TextAppearance.AppCompat.Large"
         android:theme="?attr/actionBarTheme" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="10dp"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toTopOf="@id/toolbar2">
 
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <LinearLayout
@@ -47,14 +47,15 @@
 
                     <TextView
                         android:id="@+id/score"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/shep4"
+                        android:layout_width="150dp"
+                        android:layout_height="55dp"
+                        android:background="@drawable/btn"
+                        android:fontFamily="@font/font"
                         android:gravity="start|center"
                         android:padding="5dp"
                         android:paddingStart="10dp"
                         android:text="@string/Score"
-                        android:textColor="@color/black"
+                        android:textColor="#fffe00"
                         android:textSize="20sp" />
                 </LinearLayout>
 
@@ -67,10 +68,11 @@
                         android:id="@+id/welcome"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/font"
                         android:gravity="start|center"
                         android:paddingStart="10dp"
                         android:text="@string/welcome"
-                        android:textColor="@color/white"
+                        android:textColor="#fffe00"
                         android:textSize="20sp" />
                 </LinearLayout>
 
@@ -87,12 +89,12 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="10dp"
                         android:layout_weight="2"
-                        android:background="@drawable/shep5"
+                        android:fontFamily="@font/font"
                         android:gravity="start|center"
-                        android:paddingEnd="5dp"
                         android:paddingStart="5dp"
+                        android:paddingEnd="5dp"
                         android:text="@string/name"
-                        android:textColor="@color/black"
+                        android:textColor="#fffe00"
                         android:textSize="20sp" />
 
                     <TextView
@@ -103,11 +105,11 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginEnd="10dp"
                         android:layout_weight="1"
-                        android:background="@drawable/shep5"
+                        android:fontFamily="@font/font"
                         android:gravity="start|center"
                         android:paddingStart="10dp"
                         android:text="@string/age"
-                        android:textColor="@color/black"
+                        android:textColor="#fffe00"
                         android:textSize="20sp" />
 
                 </LinearLayout>
@@ -117,6 +119,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:orientation="vertical">
 
                 <View
@@ -126,7 +129,7 @@
                     android:layout_marginStart="15dp"
                     android:layout_marginTop="15dp"
                     android:layout_marginEnd="15dp"
-                    android:background="@color/white" />
+                    android:background="#fffe00" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -139,39 +142,42 @@
 
                     <TextView
                         android:id="@+id/number1"
-                        android:layout_width="match_parent"
-                        android:layout_height="100dp"
+                        android:layout_width="20dp"
+                        android:layout_height="90dp"
                         android:layout_marginStart="10dp"
                         android:layout_weight="1"
                         android:background="@drawable/shep3"
+                        android:fontFamily="@font/font"
                         android:gravity="center"
                         android:padding="5dp"
-                        android:textColor="@color/white"
+                        android:textColor="#fffe00"
                         android:textSize="40sp" />
 
                     <TextView
                         android:id="@+id/number2"
-                        android:layout_width="match_parent"
-                        android:layout_height="100dp"
+                        android:layout_width="20dp"
+                        android:layout_height="90dp"
                         android:layout_marginStart="10dp"
                         android:layout_weight="1"
                         android:background="@drawable/shep_game2"
+                        android:fontFamily="@font/font"
                         android:gravity="center"
                         android:padding="5dp"
-                        android:textColor="@color/white"
+                        android:textColor="#fffe00"
                         android:textSize="40sp" />
 
                     <TextView
                         android:id="@+id/number3"
-                        android:layout_width="match_parent"
-                        android:layout_height="100dp"
+                        android:layout_width="20dp"
+                        android:layout_height="90dp"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
                         android:layout_weight="1"
                         android:background="@drawable/shep3"
+                        android:fontFamily="@font/font"
                         android:gravity="center"
                         android:padding="5dp"
-                        android:textColor="@color/white"
+                        android:textColor="#fffe00"
                         android:textSize="40sp" />
 
 
@@ -187,36 +193,39 @@
 
                     <TextView
                         android:id="@+id/number4"
-                        android:layout_width="match_parent"
-                        android:layout_height="100dp"
+                        android:layout_width="20dp"
+                        android:layout_height="90dp"
                         android:layout_marginStart="10dp"
                         android:layout_weight="1"
                         android:background="@drawable/shep_game2"
+                        android:fontFamily="@font/font"
                         android:gravity="center"
-                        android:textColor="@color/white"
+                        android:textColor="#fffe00"
                         android:textSize="40sp" />
 
                     <TextView
                         android:id="@+id/number5"
-                        android:layout_width="match_parent"
-                        android:layout_height="100dp"
+                        android:layout_width="20dp"
+                        android:layout_height="90dp"
                         android:layout_marginStart="10dp"
                         android:layout_weight="1"
                         android:background="@drawable/shep3"
+                        android:fontFamily="@font/font"
                         android:gravity="center"
-                        android:textColor="@color/white"
+                        android:textColor="#fffe00"
                         android:textSize="40sp" />
 
                     <TextView
                         android:id="@+id/number6"
-                        android:layout_width="match_parent"
-                        android:layout_height="100dp"
+                        android:layout_width="20dp"
+                        android:layout_height="90dp"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
                         android:layout_weight="1"
                         android:background="@drawable/shep_game2"
+                        android:fontFamily="@font/font"
                         android:gravity="center"
-                        android:textColor="@color/white"
+                        android:textColor="#fffe00"
                         android:textSize="40sp" />
                 </LinearLayout>
 
@@ -230,39 +239,42 @@
 
                     <TextView
                         android:id="@+id/number7"
-                        android:layout_width="match_parent"
-                        android:layout_height="100dp"
+                        android:layout_width="20dp"
+                        android:layout_height="90dp"
                         android:layout_marginStart="10dp"
                         android:layout_weight="1"
                         android:background="@drawable/shep3"
+                        android:fontFamily="@font/font"
                         android:gravity="center"
                         android:padding="5dp"
-                        android:textColor="@color/white"
+                        android:textColor="#fffe00"
                         android:textSize="40sp" />
 
                     <TextView
                         android:id="@+id/number8"
-                        android:layout_width="match_parent"
-                        android:layout_height="100dp"
+                        android:layout_width="20dp"
+                        android:layout_height="90dp"
                         android:layout_marginStart="10dp"
                         android:layout_weight="1"
                         android:background="@drawable/shep_game2"
+                        android:fontFamily="@font/font"
                         android:gravity="center"
                         android:padding="5dp"
-                        android:textColor="@color/white"
+                        android:textColor="#fffe00"
                         android:textSize="40sp" />
 
                     <TextView
                         android:id="@+id/number9"
-                        android:layout_width="match_parent"
-                        android:layout_height="100dp"
+                        android:layout_width="20dp"
+                        android:layout_height="90dp"
                         android:layout_marginStart="10dp"
                         android:layout_marginEnd="10dp"
                         android:layout_weight="1"
                         android:background="@drawable/shep3"
+                        android:fontFamily="@font/font"
                         android:gravity="center"
                         android:padding="5dp"
-                        android:textColor="@color/white"
+                        android:textColor="#fffe00"
                         android:textSize="40sp" />
 
 
@@ -272,6 +284,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_gravity="bottom"
                 android:orientation="vertical">
 
                 <View
@@ -281,7 +294,7 @@
                     android:layout_marginStart="15dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="15dp"
-                    android:background="@color/white" />
+                    android:background="#fffe00" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -299,6 +312,7 @@
                         android:layout_marginStart="10dp"
                         android:layout_weight="1"
                         android:background="@drawable/shep4"
+                        android:fontFamily="@font/font"
                         android:gravity="start|center"
                         android:hint="@string/enter"
                         android:inputType="number"
@@ -319,11 +333,12 @@
                         android:layout_marginEnd="5dp"
                         android:layout_weight="2"
                         android:background="@drawable/shape_check"
+                        android:fontFamily="@font/font"
                         android:gravity="center"
                         android:text="@string/check"
-                        android:textColor="@color/white"
-                        android:textSize="21sp"
+                        android:textColor="#fffe00"
 
+                        android:textSize="21sp"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -337,12 +352,13 @@
                     <Button
                         android:id="@+id/new_game"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="80dp"
-                        android:layout_marginEnd="80dp"
-                        android:background="@drawable/shep3"
+                        android:layout_height="55dp"
+                        android:layout_marginStart="90dp"
+                        android:layout_marginEnd="90dp"
+                        android:background="@drawable/btn"
+                        android:fontFamily="@font/font"
                         android:text="@string/new_game"
-                        android:textColor="@color/white"
+                        android:textColor="#fffe00"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 

@@ -1,10 +1,12 @@
 package ps.school.numbersgamefinalproject;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.Menu;
@@ -29,10 +31,11 @@ public class Game_Activity extends AppCompatActivity {
     Toolbar toolbar;
     //  عرفنا هين ال TextView وعرفنا كمان ArrayList عشان نحط الأرقام فيها
     TextView number1, number2, number3, number4, number5, number6, number7, number8, number9;
-    ArrayList<String> cars = new ArrayList<String>();
+    ArrayList<String> game = new ArrayList<String>();
     String Entere;
     Context context = this;
-    int sco;
+    DBHelper db;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,8 +76,11 @@ public class Game_Activity extends AppCompatActivity {
         number9 = findViewById(R.id.number9);
         toolbar = findViewById(R.id.toolbar2);
 
+        SharedPreferences sharedPreferences = getSharedPreferences("Save", MODE_PRIVATE);
+        String user = sharedPreferences.getString("user", "");
         toolbar.inflateMenu(R.menu.tools_menu);
-        toolbar.setSubtitle("sex");
+        toolbar.setSubtitle("Numbers Game");
+        toolbar.setSubtitleTextColor(Color.parseColor("#fffe00"));
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
@@ -97,48 +103,22 @@ public class Game_Activity extends AppCompatActivity {
 
             }
         });
+        db = new DBHelper(getApplicationContext());
+        tv_name.setText(db.getName(user));
+        tv_age.setText(db.getAge(user));
+        score.setText(db.getScore(user));
 
-        //بعدها استدعينا كلاس الQuestion
-        Question question = Util.generateQuestion();
-        //هين عرفنا questions   من نوع ARRAY
-
-        String[][] questions = question.getQuestion();
-        // بعدها عملنا الفور لوب عشان تطبع محتويات الأري
-
-        for (int i = 0; i < questions.length; i++) {
-            // questionsعملنا فور لوب ثانية للمتغير
-
-            for (int j = 0; j < questions[i].length; j++) {
-                //   ي بعدها ضفنا على الArrayList الفور لوب الي عملناه
-
-                cars.add(j, questions[i][j]);
-                //هين لما يدخل الرقم المستخدم يتأكل منه
-
-                Entere = String.valueOf(question.getHiddenNumber());
-                new_game.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent intent = new Intent(getApplicationContext(), Game_Activity.class);
-                        startActivity(intent);
-                        finish();
-                    }
-                });
+        newGame();
+        new_game.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                newGame();
             }
-        }
+        });
         //هين الأرقام المتغيرة من أول عنصر
 
-
-        number1.setText(cars.get(8));
-        number2.setText(cars.get(7));
-        number3.setText(cars.get(6));
-        number4.setText(cars.get(5));
-        number5.setText(cars.get(4));
-        number6.setText(cars.get(3));
-        number7.setText(cars.get(2));
-        number8.setText(cars.get(1));
-        number9.setText(cars.get(0));
-
         check.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View view) {
                 String ans = enter.getText().toString().trim();
@@ -146,7 +126,6 @@ public class Game_Activity extends AppCompatActivity {
                 if (ans.isEmpty()) {
                     Toast.makeText(context, "Enter A Number", Toast.LENGTH_SHORT).show();
                 } else {
-
 
                     if (Enter.equals(Entere)) {
                         new AlertDialog.Builder(context)
@@ -160,8 +139,9 @@ public class Game_Activity extends AppCompatActivity {
                                 .setIcon(R.drawable.ic_baseline_check_24)
                                 .setCancelable(false)
                                 .show();
-                        String x = score.getText().toString();
-                        score.setText("score : " + (sco += 1));
+                        db.update(user);
+                        int x = Integer.parseInt(db.getScore(user));
+                        score.setText("score : " + (x));
                     } else {
                         new AlertDialog.Builder(context)
                                 .setTitle("wrong answer")
@@ -194,5 +174,35 @@ public class Game_Activity extends AppCompatActivity {
         super.onCreateContextMenu(menu, v, menuInfo);
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.tools_menu, menu);
+    }
+
+    public void newGame() {
+        //بعدها استدعينا كلاس الQuestion
+        Question question = Util.generateQuestion();
+        //هين عرفنا questions   من نوع ARRAY
+        Entere = String.valueOf(question.getHiddenNumber());
+        Toast.makeText(getApplicationContext(), Entere, Toast.LENGTH_LONG).show();
+        String[][] questions = question.getQuestion();
+        // بعدها عملنا الفور لوب عشان تطبع محتويات الأري
+
+        for (int i = 0; i < questions.length; i++) {
+            // questionsعملنا فور لوب ثانية للمتغير
+
+            for (int j = 0; j < questions[i].length; j++) {
+                //   ي بعدها ضفنا على الArrayList الفور لوب الي عملناه
+
+                game.add(j, questions[i][j]);
+                //هين لما يدخل الرقم المستخدم يتأكل منه
+            }
+        }
+        number1.setText(game.get(8));
+        number2.setText(game.get(7));
+        number3.setText(game.get(6));
+        number4.setText(game.get(5));
+        number5.setText(game.get(4));
+        number6.setText(game.get(3));
+        number7.setText(game.get(2));
+        number8.setText(game.get(1));
+        number9.setText(game.get(0));
     }
 }

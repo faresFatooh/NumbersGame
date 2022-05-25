@@ -3,18 +3,13 @@
 
 
     <gradient
-        android:centerX="50%"
-        android:startColor="#52E7DE"
-        android:endColor="#170AA3"
+        android:angle="270"
+        android:endColor="@color/white"
+        android:startColor="#ff309a"
         android:type="linear"
         />
 
-    <padding
-        android:left="0dp"
-        android:top="0dp"
-        android:right="0dp"
-        android:bottom="0dp"
-        />
+
     <size
         android:width="100dp"
         android:height="50dp"
