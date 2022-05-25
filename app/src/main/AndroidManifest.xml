@@ -14,13 +14,16 @@
         android:theme="@style/Theme.NumbersGameFinalProject"
         tools:targetApi="31">
         <activity
-            android:name=".SettingsActivity"
+            android:name=".ui.HistoryActivity"
             android:exported="false" />
         <activity
-            android:name=".register_Activity"
+            android:name=".ui.SettingsActivity"
             android:exported="false" />
         <activity
-            android:name=".Login_Activity"
+            android:name=".ui.register_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.Login_Activity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,7 +32,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Game_Activity"
+            android:name=".ui.Game_Activity"
             android:exported="false" />
     </application>
 

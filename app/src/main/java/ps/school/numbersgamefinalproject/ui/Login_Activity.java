@@ -1,4 +1,4 @@
-package ps.school.numbersgamefinalproject;
+package ps.school.numbersgamefinalproject.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +13,9 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputLayout;
+
+import ps.school.numbersgamefinalproject.database.DBHelper;
+import ps.school.numbersgamefinalproject.R;
 
 public class Login_Activity extends AppCompatActivity {
     EditText user_name_login, password_login;

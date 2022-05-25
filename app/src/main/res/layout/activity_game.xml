@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/shep_setings"
     android:orientation="vertical"
-    tools:context=".Game_Activity">
+    tools:context=".ui.Game_Activity">
 
     <Toolbar
         android:id="@+id/toolbar2"

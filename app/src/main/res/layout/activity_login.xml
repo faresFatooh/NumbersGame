@@ -7,7 +7,7 @@
     android:focusableInTouchMode="true"
     android:gravity="center"
 android:background="@drawable/shep_setings"
-    tools:context=".Login_Activity">
+    tools:context=".ui.Login_Activity">
 
 
     <ScrollView

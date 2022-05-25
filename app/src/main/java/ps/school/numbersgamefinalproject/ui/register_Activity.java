@@ -1,4 +1,4 @@
-package ps.school.numbersgamefinalproject;
+package ps.school.numbersgamefinalproject.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,12 +21,14 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.Calendar;
+
+import ps.school.numbersgamefinalproject.database.DBHelper;
+import ps.school.numbersgamefinalproject.R;
 
 public class register_Activity extends AppCompatActivity {
     ImageView edit_img;

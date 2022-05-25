@@ -1,4 +1,4 @@
-package ps.school.numbersgamefinalproject;
+package ps.school.numbersgamefinalproject.viewmodel;
 
 public class Question {
     private String[][] question;

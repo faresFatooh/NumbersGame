@@ -7,7 +7,7 @@
     android:gravity="center"
     android:background="@drawable/shep_setings"
     android:orientation="vertical"
-    tools:context=".SettingsActivity">
+    tools:context=".ui.SettingsActivity">
 
     <Button
         android:id="@+id/show"

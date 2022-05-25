@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="400dp"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
 
 
     <TextView
-        android:id="@+id/image"
+        android:id="@+id/show_item_score"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginTop="30dp"
@@ -31,9 +31,9 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.325"
-        app:layout_constraintStart_toEndOf="@id/image"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="30dp" />
+        app:layout_constraintStart_toEndOf="@id/show_item_score"
+        app:layout_constraintTop_toTopOf="@+id/show_item_score"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView2"
@@ -45,7 +45,7 @@
         android:text="@string/time"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/image"
+        app:layout_constraintStart_toEndOf="@id/show_item_score"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteY="70dp" />
 

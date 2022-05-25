@@ -1,4 +1,4 @@
-package ps.school.numbersgamefinalproject;
+package ps.school.numbersgamefinalproject.ui;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.Menu;
@@ -24,6 +25,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
+import ps.school.numbersgamefinalproject.database.DBHelper;
+import ps.school.numbersgamefinalproject.viewmodel.Question;
+import ps.school.numbersgamefinalproject.R;
+import ps.school.numbersgamefinalproject.viewmodel.Util;
+
 public class Game_Activity extends AppCompatActivity {
     TextView score, tv_name, tv_age;
     Button check, new_game;
@@ -36,6 +42,7 @@ public class Game_Activity extends AppCompatActivity {
     Context context = this;
     DBHelper db;
 
+    MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,7 +82,8 @@ public class Game_Activity extends AppCompatActivity {
         number8 = findViewById(R.id.number8);
         number9 = findViewById(R.id.number9);
         toolbar = findViewById(R.id.toolbar2);
-
+        mediaPlayer = MediaPlayer.create(this, R.raw.bacmusec);
+        mediaPlayer.start();
         SharedPreferences sharedPreferences = getSharedPreferences("Save", MODE_PRIVATE);
         String user = sharedPreferences.getString("user", "");
         toolbar.inflateMenu(R.menu.tools_menu);
@@ -86,6 +94,7 @@ public class Game_Activity extends AppCompatActivity {
             public boolean onMenuItemClick(MenuItem item) {
                 if (item.getItemId() == R.id.stings) {
                     Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
+                    mediaPlayer.pause();
                     startActivity(intent);
                     return true;
                 } else if (item.getItemId() == R.id.out) {
@@ -94,6 +103,7 @@ public class Game_Activity extends AppCompatActivity {
                     myEdit.putBoolean("rem", false);
                     myEdit.apply();
                     Intent intent2 = new Intent(getApplicationContext(), Login_Activity.class);
+                    mediaPlayer.pause();
                     startActivity(intent2);
                     finish();
                     return true;
@@ -113,6 +123,13 @@ public class Game_Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 newGame();
+//                db.clear(user);
+                if (Integer.parseInt(db.getScore(user)) > 0) {
+                    db.updateLos(user);
+                }
+                score.setText(db.getScore(user));
+                db.insertGame(tv_name.getText().toString(), score.getText().toString(), String.valueOf(System.currentTimeMillis()));
+
             }
         });
         //هين الأرقام المتغيرة من أول عنصر
@@ -128,29 +145,54 @@ public class Game_Activity extends AppCompatActivity {
                 } else {
 
                     if (Enter.equals(Entere)) {
+                       MediaPlayer mediaPlayer1 = MediaPlayer.create(Game_Activity.this, R.raw.correct);
+                        mediaPlayer1.start();
                         new AlertDialog.Builder(context)
                                 .setTitle("Well done")
                                 .setMessage("your answer is correct")
                                 .setPositiveButton("Next Level", new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int which) {
+
+                                        newGame();
+                                        db.update(user);
+                                        score.setText(String.valueOf(db.getScore(user)));
+                                        db.insertGame(tv_name.getText().toString(), score.getText().toString(), String.valueOf(System.currentTimeMillis()));
                                     }
                                 })
                                 .setNegativeButton("Cancel", null)
                                 .setIcon(R.drawable.ic_baseline_check_24)
                                 .setCancelable(false)
                                 .show();
-                        db.update(user);
-                        int x = Integer.parseInt(db.getScore(user));
-                        score.setText("score : " + (x));
+
                     } else {
+                        MediaPlayer mediaPlayer2 = MediaPlayer.create(Game_Activity.this, R.raw.wrong);
+                        mediaPlayer2.start();
                         new AlertDialog.Builder(context)
                                 .setTitle("wrong answer")
                                 .setMessage("Try again...")
                                 .setPositiveButton("New game", new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int which) {
+                                        newGame();
+                                        if (Integer.parseInt(db.getScore(user)) > 0) {
+                                            db.updateLos(user);
+                                        }
+                                        score.setText(db.getScore(user));
+                                        db.insertGame(tv_name.getText().toString(), score.getText().toString(), String.valueOf(System.currentTimeMillis()));
+
                                     }
                                 })
-                                .setNegativeButton("Cancel", null)
+                                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        newGame();
+                                        if (Integer.parseInt(db.getScore(user)) > 0) {
+                                            db.updateLos(user);
+                                        }
+                                        score.setText(db.getScore(user));
+                                        db.insertGame(tv_name.getText().toString(), score.getText().toString(), String.valueOf(System.currentTimeMillis()));
+
+                                    }
+                                })
                                 .setIcon(R.drawable.ic_baseline_dangerous_24)
                                 .show();
                     }
@@ -204,5 +246,12 @@ public class Game_Activity extends AppCompatActivity {
         number7.setText(game.get(2));
         number8.setText(game.get(1));
         number9.setText(game.get(0));
+        enter.setText("");
+    }
+
+    @Override
+    protected void onStart() {
+        mediaPlayer.start();
+        super.onStart();
     }
 }

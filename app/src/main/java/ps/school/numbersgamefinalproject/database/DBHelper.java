@@ -1,15 +1,16 @@
-package ps.school.numbersgamefinalproject;
+package ps.school.numbersgamefinalproject.database;
 
-import static android.webkit.ConsoleMessage.MessageLevel.LOG;
-
-import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-class DBHelper extends SQLiteOpenHelper {
+import java.util.ArrayList;
+
+import ps.school.numbersgamefinalproject.model.History;
+
+public class DBHelper extends SQLiteOpenHelper {
     public static final String DBNAME = "User.db";
 
     public DBHelper(Context context) {
@@ -20,12 +21,14 @@ class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase MyDB) {
         MyDB.execSQL("create Table users(username TEXT primary key, password TEXT)");
         MyDB.execSQL("create Table info(username TEXT primary key, Fullname TEXT ,Email TEXT , Birthdate TEXT , Caontry TEXT , Gender TEXT,Score TEXT)");
+        MyDB.execSQL("create Table games(Id integer primary key autoincrement,username TEXT, Score TEXT, Date TEXT)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase MyDB, int i, int i1) {
         MyDB.execSQL("drop Table if exists users");
         MyDB.execSQL("drop Table if exists info");
+        MyDB.execSQL("drop Table if exists games");
     }
 
     public Boolean insertData(String username, String password) {
@@ -37,6 +40,15 @@ class DBHelper extends SQLiteOpenHelper {
         if (result == -1) return false;
         else
             return true;
+    }
+
+    public void insertGame(String username, String score, String Date) {
+        SQLiteDatabase MyDB = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("username", username);
+        contentValues.put("Score", score);
+        contentValues.put("Date", Date);
+        MyDB.insert("games", null, contentValues);
     }
 
     public Boolean insertDetails(String username, String fullname, String email, String birthdate, String country, String gender, String Score) {
@@ -98,11 +110,61 @@ class DBHelper extends SQLiteOpenHelper {
     }
 
     public long update(String username) {
-        int x = Integer.parseInt(getScore(username));
+        int last = Integer.parseInt(getScore(username));
         SQLiteDatabase db = this.getReadableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("Score", x + 1);
+        contentValues.put("Score", last + 10);
 
         return db.update("info", contentValues, "username =?", new String[]{username});
+    }
+    public long updateLos(String username) {
+        int last = Integer.parseInt(getScore(username));
+        SQLiteDatabase db = this.getReadableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("Score", last - 10);
+
+        return db.update("info", contentValues, "username =?", new String[]{username});
+    }
+
+//    public long clear(String username) {
+//        SQLiteDatabase db = this.getReadableDatabase();
+//        ContentValues contentValues = new ContentValues();
+//        contentValues.put("Score", 0);
+//
+//        return db.update("info", contentValues, "username =?", new String[]{username});
+//    }
+
+    public long changePassword(String username, String password) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("password", password);
+
+        return db.update("users", contentValues, "username =?", new String[]{username});
+    }
+
+    public ArrayList<History> getAllGames() {
+        ArrayList games = new ArrayList<>();
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor c = db.rawQuery("Select * from games", null);
+        int idIndex = c.getColumnIndex("Id");
+        int usernameIndex = c.getColumnIndex("username");
+        int scoreIndex = c.getColumnIndex("Score");
+        int dateIndex = c.getColumnIndex("Date");
+        while (c.moveToNext()) {
+            int id = c.getInt(idIndex);
+            String username = c.getString(usernameIndex);
+            String score = c.getString(scoreIndex);
+            String date = c.getString(dateIndex);
+            History history = new History(username, score, date);
+            history.setId(id);
+            games.add(history);
+        }
+        return games;
+    }
+
+    public void clearHistory() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DELETE  FROM " + "games");
+        db.close();
     }
 }
