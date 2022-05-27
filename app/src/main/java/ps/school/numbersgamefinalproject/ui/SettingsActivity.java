@@ -10,6 +10,8 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -37,6 +39,14 @@ public class SettingsActivity extends AppCompatActivity {
         change = findViewById(R.id.change);
         clear = findViewById(R.id.clear);
         db = new DBHelper(getApplicationContext());
+
+
+        Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.animeion2);
+        show.startAnimation(animation1);
+        show_last.startAnimation(animation1);
+        change.startAnimation(animation1);
+        clear.startAnimation(animation1);
 
         SharedPreferences sharedPreferences = getSharedPreferences("Save", MODE_PRIVATE);
         String user = sharedPreferences.getString("user", "");
@@ -87,12 +97,12 @@ public class SettingsActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         password = dialog.findViewById(R.id.dialog_password);
                         re_password = dialog.findViewById(R.id.re_password_dialog);
-                        String _password = password.getEditText().getText().toString();
+                        String password_setting = password.getEditText().getText().toString();
                         String _re_password = re_password.getEditText().getText().toString();
-                        if (validatePassword(_password, _re_password)) {
-                            db.changePassword(user, _password);
+                        if (validatePassword(password_setting, _re_password)) {
+                            db.changePassword(user, password_setting);
                             SharedPreferences.Editor myEdit = sharedPreferences.edit();
-                            myEdit.putString("password", _password);
+                            myEdit.putString("password", password_setting);
                             myEdit.apply();
                             dialog.dismiss();
                         }
@@ -151,6 +161,7 @@ public class SettingsActivity extends AppCompatActivity {
             return false;
         }
         if (password_now.length() < 8) {
+//            في مشكلة
             password.setError("Password is too short (Min. 8 Characters)");
             return false;
         }

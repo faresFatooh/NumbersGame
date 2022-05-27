@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -37,6 +39,16 @@ public class Login_Activity extends AppCompatActivity {
         input_user_name_login = findViewById(R.id.input_user_name_login);
         input_password_login = findViewById(R.id.input_password_login);
         DB = new DBHelper(this);
+
+        Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.animeion2);
+        register.startAnimation(animation1);
+        login.startAnimation(animation1);
+        user_name_login.startAnimation(animation1);
+        password_login.startAnimation(animation1);
+        remember.startAnimation(animation1);
+        input_password_login.startAnimation(animation1);
+        input_user_name_login.startAnimation(animation1);
 
         SharedPreferences sharedPreferences = getSharedPreferences("Save", MODE_PRIVATE);
         SharedPreferences.Editor myEdit = sharedPreferences.edit();
@@ -70,7 +82,7 @@ public class Login_Activity extends AppCompatActivity {
                 if (!password.isEmpty() && !userName.isEmpty()) {
                     Boolean checkuserpass = DB.checkusernamepassword(userName, password);
                     if (checkuserpass == true) {
-                        Toast.makeText(Login_Activity.this, "Sign in successful", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Login_Activity.this, R.string.sign_in_successful, Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(), Game_Activity.class);
                         SharedPreferences.Editor myEdit = sharedPreferences.edit();
                         myEdit.putBoolean("rem", remember.isChecked());
@@ -78,8 +90,8 @@ public class Login_Activity extends AppCompatActivity {
                         startActivity(intent);
                         finish();
                     }else {
-                        input_user_name_login.setError("theirs no user name registered");
-                        input_password_login.setError("theirs no password name registered");
+                        input_user_name_login.setError(getString(R.string.theirs_no_user_name_registered));
+                        input_password_login.setError(getString(R.string.theirs_no_password_name_registered));
                     }
                 }
 
@@ -115,7 +127,7 @@ public class Login_Activity extends AppCompatActivity {
         }
 
         if (password.length() < 8) {
-            input_password_login.setError("Password is too short (Min. 8 Characters)");
+            input_password_login.setError(getString(R.string.min_eight_characters));
             return false;
         }
 

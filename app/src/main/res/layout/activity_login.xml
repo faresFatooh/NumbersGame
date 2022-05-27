@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/shep_setings"
     android:focusableInTouchMode="true"
     android:gravity="center"
-android:background="@drawable/shep_setings"
     tools:context=".ui.Login_Activity">
 
 
@@ -55,6 +55,7 @@ android:background="@drawable/shep_setings"
                     app:boxCornerRadiusBottomStart="1dp"
                     app:boxCornerRadiusTopEnd="1dp"
                     app:boxCornerRadiusTopStart="15dp"
+
                     app:boxStrokeColor="@color/mtrl_textinput_default_box_stroke_color"
                     app:boxStrokeWidth="3dp"
                     app:errorEnabled="true"
@@ -141,11 +142,12 @@ android:background="@drawable/shep_setings"
                         android:layout_weight="1"
                         android:background="@drawable/btn"
                         android:fontFamily="@font/font"
-                        android:text="Sign up"
+                        android:text="@string/sign_up"
                         android:textAllCaps="false"
                         android:textColor="#fffe00"
                         android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        style="?android:attr/buttonBarButtonStyle" />
 
                     <Button
                         android:id="@+id/login"
@@ -155,11 +157,12 @@ android:background="@drawable/shep_setings"
                         android:layout_weight="1"
                         android:background="@drawable/btn"
                         android:fontFamily="@font/font"
-                        android:text="Sign in"
+                        android:text="@string/sign_in"
                         android:textAllCaps="false"
                         android:textColor="#fffe00"
                         android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        style="?android:attr/buttonBarButtonStyle" />
 
                 </LinearLayout>
 

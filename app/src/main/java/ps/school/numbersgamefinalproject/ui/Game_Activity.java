@@ -14,6 +14,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -65,30 +67,41 @@ public class Game_Activity extends AppCompatActivity {
         number9 = findViewById(R.id.number9);
         toolbar = findViewById(R.id.toolbar2);
 
+//        score = findViewById(R.id.score);
+//        tv_name = findViewById(R.id.tv_name);
+//        tv_age = findViewById(R.id.tv_age);
+//        enter = findViewById(R.id.enter);
+//        check = findViewById(R.id.check);
+//        new_game = findViewById(R.id.new_game);
+//        number1 = findViewById(R.id.number1);
+//        number2 = findViewById(R.id.number2);
+//        number3 = findViewById(R.id.number3);
+//        number4 = findViewById(R.id.number4);
+//        number5 = findViewById(R.id.number5);
+//        number6 = findViewById(R.id.number6);
+//        number7 = findViewById(R.id.number7);
+//        number8 = findViewById(R.id.number8);
+//        number9 = findViewById(R.id.number9);
+//        toolbar = findViewById(R.id.toolbar2);
 
-        score = findViewById(R.id.score);
-        tv_name = findViewById(R.id.tv_name);
-        tv_age = findViewById(R.id.tv_age);
-        enter = findViewById(R.id.enter);
-        check = findViewById(R.id.check);
-        new_game = findViewById(R.id.new_game);
-        number1 = findViewById(R.id.number1);
-        number2 = findViewById(R.id.number2);
-        number3 = findViewById(R.id.number3);
-        number4 = findViewById(R.id.number4);
-        number5 = findViewById(R.id.number5);
-        number6 = findViewById(R.id.number6);
-        number7 = findViewById(R.id.number7);
-        number8 = findViewById(R.id.number8);
-        number9 = findViewById(R.id.number9);
-        toolbar = findViewById(R.id.toolbar2);
+
         mediaPlayer = MediaPlayer.create(this, R.raw.bacmusec);
         mediaPlayer.start();
+
+        Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.animeion2);
+        check.startAnimation(animation1);
+        new_game.startAnimation(animation1);
+        enter.startAnimation(animation1);
+        score.startAnimation(animation1);
+        tv_name.startAnimation(animation1);
+
+
         SharedPreferences sharedPreferences = getSharedPreferences("Save", MODE_PRIVATE);
         String user = sharedPreferences.getString("user", "");
         toolbar.inflateMenu(R.menu.tools_menu);
-        toolbar.setSubtitle("Numbers Game");
-        toolbar.setSubtitleTextColor(Color.parseColor("#fffe00"));
+        toolbar.setSubtitle(R.string.new_game);
+        toolbar.setSubtitleTextColor(Color.parseColor(getString(R.string.toolbar)));
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
@@ -141,16 +154,16 @@ public class Game_Activity extends AppCompatActivity {
                 String ans = enter.getText().toString().trim();
                 String Enter = enter.getText().toString();
                 if (ans.isEmpty()) {
-                    Toast.makeText(context, "Enter A Number", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, R.string.enter_a_umber, Toast.LENGTH_SHORT).show();
                 } else {
 
                     if (Enter.equals(Entere)) {
                        MediaPlayer mediaPlayer1 = MediaPlayer.create(Game_Activity.this, R.raw.correct);
                         mediaPlayer1.start();
                         new AlertDialog.Builder(context)
-                                .setTitle("Well done")
-                                .setMessage("your answer is correct")
-                                .setPositiveButton("Next Level", new DialogInterface.OnClickListener() {
+                                .setTitle(R.string.well_done)
+                                .setMessage(R.string.your_answer_is_correct)
+                                .setPositiveButton(R.string.next_level, new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int which) {
 
                                         newGame();
@@ -159,7 +172,7 @@ public class Game_Activity extends AppCompatActivity {
                                         db.insertGame(tv_name.getText().toString(), score.getText().toString(), String.valueOf(System.currentTimeMillis()));
                                     }
                                 })
-                                .setNegativeButton("Cancel", null)
+                                .setNegativeButton(R.string.cancel, null)
                                 .setIcon(R.drawable.ic_baseline_check_24)
                                 .setCancelable(false)
                                 .show();
@@ -168,9 +181,9 @@ public class Game_Activity extends AppCompatActivity {
                         MediaPlayer mediaPlayer2 = MediaPlayer.create(Game_Activity.this, R.raw.wrong);
                         mediaPlayer2.start();
                         new AlertDialog.Builder(context)
-                                .setTitle("wrong answer")
-                                .setMessage("Try again...")
-                                .setPositiveButton("New game", new DialogInterface.OnClickListener() {
+                                .setTitle(R.string.wrong_answer)
+                                .setMessage(R.string.try_again)
+                                .setPositiveButton(R.string.new_game, new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int which) {
                                         newGame();
                                         if (Integer.parseInt(db.getScore(user)) > 0) {
@@ -181,7 +194,7 @@ public class Game_Activity extends AppCompatActivity {
 
                                     }
                                 })
-                                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
                                         newGame();
@@ -247,6 +260,20 @@ public class Game_Activity extends AppCompatActivity {
         number8.setText(game.get(1));
         number9.setText(game.get(0));
         enter.setText("");
+
+
+
+        Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.amime);
+        number1.startAnimation(animation1);
+        number2.startAnimation(animation1);
+        number3.startAnimation(animation1);
+        number4.startAnimation(animation1);
+        number5.startAnimation(animation1);
+        number6.startAnimation(animation1);
+        number7.startAnimation(animation1);
+        number8.startAnimation(animation1);
+        number9.startAnimation(animation1);
     }
 
     @Override
@@ -255,5 +282,3 @@ public class Game_Activity extends AppCompatActivity {
         super.onStart();
     }
 }
-
-//

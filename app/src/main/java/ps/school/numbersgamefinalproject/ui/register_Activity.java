@@ -12,6 +12,8 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
@@ -25,7 +27,11 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 import ps.school.numbersgamefinalproject.database.DBHelper;
 import ps.school.numbersgamefinalproject.R;
@@ -60,8 +66,30 @@ public class register_Activity extends AppCompatActivity {
         save = findViewById(R.id.save);
         dateBaker = findViewById(R.id.date_baker_register);
         DB = new DBHelper(this);
-        dateBaker.setText(getTodaysDate());
-        initDatePicker();
+
+//        dateBaker.setText(getTodaysDate());
+//        initDatePicker();
+
+        Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.animeion2);
+        edit_img.startAnimation(animation1);
+        i_full_name.startAnimation(animation1);
+        i_email_address.startAnimation(animation1);
+        i_user_name.startAnimation(animation1);
+        i_password.startAnimation(animation1);
+        i_password_re.startAnimation(animation1);
+        spinner_country.startAnimation(animation1);
+        radio_group.startAnimation(animation1);
+        male.startAnimation(animation1);
+        female.startAnimation(animation1);
+        dateBaker.startAnimation(animation1);
+        save.startAnimation(animation1);
+
+
+
+
+
+
         edit_img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -107,11 +135,11 @@ public class register_Activity extends AppCompatActivity {
                         if (!checkuser) {
                             insert = DB.insertData(userName, password_now);
                         } else {
-                            Toast.makeText(getApplicationContext(), "the user name is already Exists!!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), R.string.the_user_name_is_already_Exists, Toast.LENGTH_SHORT).show();
                         }
                         Boolean insertDetails = DB.insertDetails(userName, fullName, emailAddress, date, "", validateGender(),"0");
                         if (insert && insertDetails) {
-                            Toast.makeText(getApplicationContext(), "Registered successfully", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), R.string.registered_successfully, Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getApplicationContext(), Login_Activity.class);
                             SharedPreferences.Editor myEdit = sharedPreferences.edit();
                             myEdit.putBoolean("rem", radio_group.isClickable());
@@ -128,14 +156,57 @@ public class register_Activity extends AppCompatActivity {
 
         });
 
+
+
         dateBaker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 datePickerDialog.show();
-            }
+
+        final Calendar c = Calendar.getInstance();
+        int mYear = c.get(Calendar.YEAR);
+        int mMonth = c.get(Calendar.MONTH);
+        int mDay = c.get(Calendar.DAY_OF_MONTH);
+        DatePickerDialog datePickerDialog = new DatePickerDialog(getApplicationContext(),
+                new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year,
+                                          int monthOfYear, int
+                                                  dayOfMonth) {
+
+                        String dateString = dayOfMonth + "/"
+                                + (monthOfYear + 1) + "/" + year;
+                        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                        Date d1 = null;
+                        try {
+                            d1 = df.parse(dateString);
+                            Date currentTime = Calendar.getInstance().getTime();
+                            printDifference(d1,currentTime);
+
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                        }
+
+
+                    }
+                }, mYear, mMonth, mDay);
+        datePickerDialog.show();
+            }    
         });
 
 
+    }
+
+
+    public void printDifference(Date startDate, Date endDate) {
+//milliseconds
+        long different = endDate.getTime() - startDate.getTime();
+        long secondsInMilli = 1000;
+        long minutesInMilli = secondsInMilli * 60;
+        long hoursInMilli = minutesInMilli * 60;
+        long daysInMilli = hoursInMilli * 24;
+        long yearsInMilli = daysInMilli * 365;
+        long elapsedYears = different / yearsInMilli;
     }
 
     private String getTodaysDate() {
@@ -173,7 +244,6 @@ public class register_Activity extends AppCompatActivity {
     }
 
 //هين حطينا لما يضغط على الشهر يظهر في Textview اسم الشهر
-
 
     private String getMonthFormat(int month) {
         if (month == 1)
@@ -219,10 +289,10 @@ public class register_Activity extends AppCompatActivity {
                     edit_img.setImageBitmap(selected_img);
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
-                    Toast.makeText(this, "An error occured!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, R.string.an_error_occured, Toast.LENGTH_LONG).show();
                 }
             } else {
-                Toast.makeText(this, "You didn't pick an image!", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, R.string.you_didnot_pick_an_image, Toast.LENGTH_LONG).show();
             }
         }
     }
@@ -260,10 +330,10 @@ public class register_Activity extends AppCompatActivity {
     private String validateGender() {
 
         String gender = String.valueOf(radio_group.getCheckedRadioButtonId());
-        if (gender.equals("2131362057")) {
+        if (gender.equals("2131362060")) {
 
             return "male";
-        } else if (gender.equals("2131361988")) {
+        } else if (gender.equals("2131361991")) {
             return "female";
         } else if (gender.equals("-1")) {
             return "null";
@@ -287,6 +357,7 @@ public class register_Activity extends AppCompatActivity {
             return false;
         }
         if (password_now.length() < 8) {
+//            في مشكلة انجليزي
             i_password.setError("Password is too short (Min. 8 Characters)");
             return false;
         }
@@ -294,7 +365,4 @@ public class register_Activity extends AppCompatActivity {
         i_password_re.setError(null);
         return true;
     }
-    //
-
-
 }

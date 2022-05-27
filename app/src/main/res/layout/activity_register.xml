@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-
     android:background="@drawable/shep_setings"
+    android:gravity="center"
     tools:context=".ui.register_Activity">
 
 
@@ -21,12 +20,10 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0">
 
-
         <LinearLayout
             android:id="@+id/lay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_margin="10dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
@@ -68,11 +65,12 @@
                         android:drawableStart="@drawable/ic_user"
                         android:drawablePadding="10dp"
                         android:fontFamily="@font/font"
+                        android:textAlignment="textStart"
                         android:textColor="#fffe00"
                         android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/edit_img"
                     android:layout_width="55dp"
                     android:layout_height="55dp"
@@ -152,7 +150,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:baselineAligned="false"
+                >
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/password"
@@ -307,7 +307,6 @@
 
 
         </LinearLayout>
-
 
     </ScrollView>
 

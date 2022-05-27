@@ -39,6 +39,25 @@
     <string name="sign_up">Sign up</string>
     <string name="dialogue_delete">CAN DELETE ALL GAMES RECORDED IN DATABASE</string>
     <string name="changing_password_settings">password changing</string>
+    <string name="no_delete">No</string>
+    <string name="yes_delete">Yes</string>
+    <string name="done">Done</string>
+    <string name="cancel">Cancel</string>
+    <string name="try_again">Try again…</string>
+    <string name="wrong_answer">wrong answer</string>
+    <string name="next_level">Next Level</string>
+    <string name="your_answer_is_correct">your answer is correct</string>
+    <string name="well_done">Well done</string>
+    <string name="enter_a_umber">Enter A Number</string>
+    <string name="sign_in_successful">Sign in successful</string>
+    <string name="theirs_no_password_name_registered">theirs no password name registered</string>
+    <string name="theirs_no_user_name_registered">theirs no user name registered</string>
+    <string name="min_eight_characters">Password is too short (Min. 8 Characters)</string>
+    <string name="the_user_name_is_already_Exists">the user name is already Exists!!</string>
+    <string name="registered_successfully">Registered successfully</string>
+    <string name="an_error_occured">An error occurred!</string>
+    <string name="toolbar">#fffe00</string>
+    <string name="you_didnot_pick_an_image">You didn\'t pick an image!</string>
 
     <string-array name="contre">
 
