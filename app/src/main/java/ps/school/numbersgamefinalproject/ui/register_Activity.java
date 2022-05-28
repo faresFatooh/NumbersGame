@@ -97,6 +97,7 @@ public class register_Activity extends AppCompatActivity {
 
                     }
                 }
+                //
         );
         edit_img.setOnClickListener(new View.OnClickListener() {
             @Override
