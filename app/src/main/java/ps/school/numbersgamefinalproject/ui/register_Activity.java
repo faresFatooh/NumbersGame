@@ -134,7 +134,7 @@ public class register_Activity extends AppCompatActivity {
                 String rePassword = input_password_re.getEditText().getText().toString();
 
 
-
+//
                 if (validateFullName(fullName) && validateEmail(emailAddress) && validateUserName(userName) && validatePassword(password_now, rePassword)) {
 
 
