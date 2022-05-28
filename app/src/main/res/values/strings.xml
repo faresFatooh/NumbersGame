@@ -51,7 +51,6 @@
     <string name="enter_a_umber">Enter A Number</string>
     <string name="sign_in_successful">Sign in successful</string>
     <string name="theirs_no_password_name_registered">theirs no password name registered</string>
-    <string name="theirs_no_user_name_registered">theirs no user name registered</string>
     <string name="min_eight_characters">Password is too short (Min. 8 Characters)</string>
     <string name="the_user_name_is_already_Exists">the user name is already Exists!!</string>
     <string name="registered_successfully">Registered successfully</string>

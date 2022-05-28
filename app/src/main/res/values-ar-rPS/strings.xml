@@ -52,12 +52,11 @@
     <string name="well_done">عمل جيد</string>
     <string name="enter_a_umber">أدخل الرقم</string>
     <string name="sign_in_successful">تم تسجيل الدخول</string>
-    <string name="theirs_no_password_name_registered">theirs no password name registered</string>
-    <string name="theirs_no_user_name_registered">theirs no user name registered</string>
+    <string name="theirs_no_password_name_registered">المستخدم غير موجود</string>
     <string name="min_eight_characters">كلمة المرور قصيرة(يجب أن تكون أكثر من 8)</string>
     <string name="the_user_name_is_already_Exists">إسم المستخدم موجود مسبقا</string>
     <string name="registered_successfully">تسجيل </string>
-    <string name="an_error_occured">An error occured!</string>
+    <string name="an_error_occured">خطأ</string>
     <string name="you_didnot_pick_an_image">لم تختار الصورة الشخصية</string>
 
     <string-array name="contre">

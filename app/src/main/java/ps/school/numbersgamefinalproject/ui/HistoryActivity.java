@@ -1,11 +1,11 @@
 package ps.school.numbersgamefinalproject.ui;
 
+import android.content.SharedPreferences;
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.os.Bundle;
-import android.widget.ListView;
 
 import java.util.ArrayList;
 
@@ -23,10 +23,13 @@ public class HistoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
 
+        SharedPreferences sharedPreferences = getSharedPreferences("Save", MODE_PRIVATE);
+        String user = sharedPreferences.getString("user", "");
+
         listView = findViewById(R.id.re_game_history);
         db = new DBHelper(getApplicationContext());
 
-        ArrayList<History> histories = db.getAllGames();
+        ArrayList<History> histories = db.getAllGames(user);
 
         listView.setLayoutManager(new LinearLayoutManager(this));
         HistoryAdapter historyAdapter = new HistoryAdapter(histories);

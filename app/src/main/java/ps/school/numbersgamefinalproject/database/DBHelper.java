@@ -142,7 +142,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return db.update("users", contentValues, "username =?", new String[]{username});
     }
 
-    public ArrayList<History> getAllGames() {
+    public ArrayList<History> getAllGames(String usernameNaw) {
         ArrayList games = new ArrayList<>();
         SQLiteDatabase db = getReadableDatabase();
         Cursor c = db.rawQuery("Select * from games", null);
@@ -156,8 +156,12 @@ public class DBHelper extends SQLiteOpenHelper {
             String score = c.getString(scoreIndex);
             String date = c.getString(dateIndex);
             History history = new History(username, score, date);
-            history.setId(id);
-            games.add(history);
+
+            if (history.getUsername().equals(usernameNaw)){
+                history.setId(id);
+                games.add(history);
+            }
+
         }
         return games;
     }

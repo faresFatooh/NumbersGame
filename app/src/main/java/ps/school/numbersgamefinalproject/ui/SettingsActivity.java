@@ -1,7 +1,5 @@
 package ps.school.numbersgamefinalproject.ui;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,12 +13,13 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
 
 import ps.school.numbersgamefinalproject.R;
-import ps.school.numbersgamefinalproject.adapter.HistoryAdapter;
 import ps.school.numbersgamefinalproject.database.DBHelper;
 import ps.school.numbersgamefinalproject.model.History;
 
@@ -56,6 +55,8 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), HistoryActivity.class));
+
+
             }
         });
 
@@ -64,7 +65,7 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                ArrayList<History> histories = db.getAllGames();
+                ArrayList<History> histories = db.getAllGames(user);
                 int lastIndex = histories.size() - 1;
                 if (!(histories.size() == 0)) {
                     if (String.valueOf(histories.get(lastIndex).getDate()).equals(null)) {
@@ -72,6 +73,7 @@ public class SettingsActivity extends AppCompatActivity {
                     } else {
                         Toast.makeText(getApplicationContext(), String.valueOf(histories.get(lastIndex).getDate()), Toast.LENGTH_SHORT).show();
                     }
+
                 } else {
                     Toast.makeText(getApplicationContext(), "No Data", Toast.LENGTH_SHORT).show();
 
@@ -124,7 +126,6 @@ public class SettingsActivity extends AppCompatActivity {
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 Button done = dialog.findViewById(R.id.yes);
                 Button no = dialog.findViewById(R.id.no);
-
                 done.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -142,6 +143,11 @@ public class SettingsActivity extends AppCompatActivity {
             }
 
         });
+
+//
+//        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(videoPath));
+//        intent.setDataAndType(Uri.parse(videoPath), "video/*");
+//        startActivity(intent);
 
     }
 

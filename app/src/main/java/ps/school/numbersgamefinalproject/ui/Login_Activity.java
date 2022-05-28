@@ -1,7 +1,5 @@
 package ps.school.numbersgamefinalproject.ui;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -14,10 +12,12 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.textfield.TextInputLayout;
 
-import ps.school.numbersgamefinalproject.database.DBHelper;
 import ps.school.numbersgamefinalproject.R;
+import ps.school.numbersgamefinalproject.database.DBHelper;
 
 public class Login_Activity extends AppCompatActivity {
     EditText user_name_login, password_login;
@@ -90,7 +90,7 @@ public class Login_Activity extends AppCompatActivity {
                         startActivity(intent);
                         finish();
                     }else {
-                        input_user_name_login.setError(getString(R.string.theirs_no_user_name_registered));
+                        input_user_name_login.setError(getString(R.string.theirs_no_password_name_registered));
                         input_password_login.setError(getString(R.string.theirs_no_password_name_registered));
                     }
                 }

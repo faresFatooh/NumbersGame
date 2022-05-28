@@ -4,8 +4,6 @@ import android.util.Log;
 
 import java.util.Random;
 
-import ps.school.numbersgamefinalproject.viewmodel.Question;
-
 public class Util {
     public static Question generateQuestion() {
         Random random = new Random();

@@ -44,8 +44,8 @@
                     android:layout_weight="1"
                     android:hint="@string/full"
                     android:inputType="text"
-                    android:textColor="#fffe00"
-                    android:textColorHint="#fffe00"
+                    android:textColor="@color/yellow"
+                    android:textColorHint="@color/yellow"
                     android:theme="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     app:boxBackgroundMode="outline"
                     app:boxCollapsedPaddingTop="10dp"
@@ -56,7 +56,7 @@
                     app:boxStrokeColor="@color/mtrl_textinput_default_box_stroke_color"
                     app:boxStrokeWidth="3dp"
                     app:hintAnimationEnabled="true"
-                    app:hintTextColor="#fffe00">
+                    app:hintTextColor="@color/yellow">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
@@ -66,7 +66,7 @@
                         android:drawablePadding="10dp"
                         android:fontFamily="@font/font"
                         android:textAlignment="textStart"
-                        android:textColor="#fffe00"
+                        android:textColor="@color/yellow"
                         android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -76,7 +76,7 @@
                     android:layout_height="55dp"
                     android:layout_marginStart="10dp"
                     android:src="@drawable/ic_baseline_person_24"
-                    app:civ_border_color="#fffe00"
+                    app:civ_border_color="@color/yellow"
                     app:civ_border_width="3dp" />
             </LinearLayout>
 
@@ -88,8 +88,8 @@
                 android:layout_marginTop="15dp"
                 android:hint="@string/email_address"
                 android:inputType="textEmailAddress"
-                android:textColor="#fffe00"
-                android:textColorHint="#fffe00"
+                android:textColor="@color/yellow"
+                android:textColorHint="@color/yellow"
                 android:theme="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:boxBackgroundMode="outline"
                 app:boxCollapsedPaddingTop="10dp"
@@ -97,10 +97,10 @@
                 app:boxCornerRadiusBottomStart="1dp"
                 app:boxCornerRadiusTopEnd="1dp"
                 app:boxCornerRadiusTopStart="15dp"
-                app:boxStrokeColor="#fffe00"
+                app:boxStrokeColor="@color/yellow"
                 app:boxStrokeWidth="3dp"
                 app:hintAnimationEnabled="true"
-                app:hintTextColor="#fffe00">
+                app:hintTextColor="@color/yellow">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -109,7 +109,8 @@
                     android:drawableStart="@drawable/email"
                     android:drawablePadding="10dp"
                     android:fontFamily="@font/font"
-                    android:textColor="#fffe00"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/yellow"
                     android:textSize="14sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -122,8 +123,8 @@
                 android:drawablePadding="8dp"
                 android:hint="@string/user_name"
                 android:inputType="text"
-                android:textColor="#fffe00"
-                android:textColorHint="#fffe00"
+                android:textColor="@color/yellow"
+                android:textColorHint="@color/yellow"
                 android:theme="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 app:boxBackgroundMode="outline"
                 app:boxCollapsedPaddingTop="10dp"
@@ -133,7 +134,7 @@
                 app:boxCornerRadiusTopStart="15dp"
                 app:boxStrokeWidth="3dp"
                 app:hintAnimationEnabled="true"
-                app:hintTextColor="#fffe00">
+                app:hintTextColor="@color/yellow">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -142,7 +143,7 @@
                     android:drawableStart="@drawable/ic_user"
                     android:drawablePadding="10dp"
                     android:fontFamily="@font/font"
-                    android:textColor="#fffe00"
+                    android:textColor="@color/yellow"
                     android:textSize="14sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -150,9 +151,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
                 android:baselineAligned="false"
-                >
+                android:orientation="horizontal">
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/password"
@@ -164,8 +164,8 @@
                     android:layout_weight="1"
                     android:hint="@string/password"
                     android:inputType="textPassword"
-                    android:textColor="#fffe00"
-                    android:textColorHint="#fffe00"
+                    android:textColor="@color/yellow"
+                    android:textColorHint="@color/yellow"
                     android:theme="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     app:boxBackgroundColor="#5243A0"
                     app:boxBackgroundMode="outline"
@@ -176,7 +176,7 @@
                     app:boxCornerRadiusTopStart="15dp"
                     app:boxStrokeWidth="3dp"
                     app:hintAnimationEnabled="true"
-                    app:hintTextColor="#fffe00">
+                    app:hintTextColor="@color/yellow">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
@@ -185,7 +185,7 @@
                         android:drawableStart="@drawable/password"
                         android:drawablePadding="8dp"
                         android:fontFamily="@font/font"
-                        android:textColor="#fffe00"
+                        android:textColor="@color/yellow"
                         android:textSize="14sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -200,8 +200,8 @@
                     android:layout_weight="1"
                     android:hint="@string/r_password"
                     android:inputType="textPassword"
-                    android:textColor="#fffe00"
-                    android:textColorHint="#fffe00"
+                    android:textColor="@color/yellow"
+                    android:textColorHint="@color/yellow"
                     android:theme="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     app:boxBackgroundColor="#5243A0"
                     app:boxBackgroundMode="outline"
@@ -212,7 +212,7 @@
                     app:boxCornerRadiusTopStart="1dp"
                     app:boxStrokeWidth="3dp"
                     app:hintAnimationEnabled="true"
-                    app:hintTextColor="#fffe00">
+                    app:hintTextColor="@color/yellow">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
@@ -220,7 +220,7 @@
                         android:background="@drawable/btn"
                         android:drawableStart="@drawable/password"
                         android:fontFamily="@font/font"
-                        android:textColor="#fffe00"
+                        android:textColor="@color/yellow"
                         android:textSize="14sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -239,11 +239,12 @@
                 android:gravity="center_vertical"
                 android:padding="10dp"
                 android:text="@string/Birthdate"
-                android:textColor="#fffe00"
+                android:textColor="@color/yellow"
                 android:textSize="20sp" />
 
             <Spinner
                 android:id="@+id/spinner_country"
+                android:theme="@style/Theme.AppCompat.NoActionBar"
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:layout_marginTop="15dp"
@@ -251,6 +252,7 @@
                 android:background="@drawable/btn"
                 android:entries="@array/contre"
                 android:padding="10dp"
+                android:textColor="@color/yellow"
 
                 />
 
@@ -272,7 +274,7 @@
                     android:buttonTint="#FFFFFF"
                     android:fontFamily="@font/font"
                     android:text="@string/male"
-                    android:textColor="#fffe00"
+                    android:textColor="@color/yellow"
                     android:textSize="20sp" />
 
                 <RadioButton
@@ -285,7 +287,7 @@
                     android:buttonTint="#FFFFFF"
                     android:fontFamily="@font/font"
                     android:text="@string/Female"
-                    android:textColor="#fffe00"
+                    android:textColor="@color/yellow"
                     android:textColorHint="#FFFFFF"
                     android:textSize="20sp" />
 
@@ -302,7 +304,7 @@
                 android:background="@drawable/btn"
                 android:fontFamily="@font/font"
                 android:text="@string/save"
-                android:textColor="#fffe00"
+                android:textColor="@color/yellow"
                 android:textSize="20sp" />
 
 
