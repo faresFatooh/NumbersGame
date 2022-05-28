@@ -20,6 +20,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import java.util.ArrayList;
 
 import ps.school.numbersgamefinalproject.R;
+import ps.school.numbersgamefinalproject.constant.Constant;
 import ps.school.numbersgamefinalproject.database.DBHelper;
 import ps.school.numbersgamefinalproject.model.History;
 
@@ -36,7 +37,7 @@ public class SettingsActivity extends AppCompatActivity {
         show = findViewById(R.id.show);
         show_last = findViewById(R.id.show_last);
         change = findViewById(R.id.change);
-        clear = findViewById(R.id.clear);
+        clear = findViewById(R.id.clear_game);
         db = new DBHelper(getApplicationContext());
 
 
@@ -47,8 +48,8 @@ public class SettingsActivity extends AppCompatActivity {
         change.startAnimation(animation1);
         clear.startAnimation(animation1);
 
-        SharedPreferences sharedPreferences = getSharedPreferences("Save", MODE_PRIVATE);
-        String user = sharedPreferences.getString("user", "");
+        SharedPreferences sharedPreferences = getSharedPreferences(Constant.SAVE, MODE_PRIVATE);
+        String user = sharedPreferences.getString(Constant.USER, "");
 
 
         show.setOnClickListener(new View.OnClickListener() {
@@ -104,7 +105,7 @@ public class SettingsActivity extends AppCompatActivity {
                         if (validatePassword(password_setting, _re_password)) {
                             db.changePassword(user, password_setting);
                             SharedPreferences.Editor myEdit = sharedPreferences.edit();
-                            myEdit.putString("password", password_setting);
+                            myEdit.putString(Constant.PASSWORD, password_setting);
                             myEdit.apply();
                             dialog.dismiss();
                         }
@@ -144,7 +145,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         });
 
-//
+
 //        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(videoPath));
 //        intent.setDataAndType(Uri.parse(videoPath), "video/*");
 //        startActivity(intent);
@@ -168,7 +169,7 @@ public class SettingsActivity extends AppCompatActivity {
         }
         if (password_now.length() < 8) {
 //            في مشكلة
-            password.setError("Password is too short (Min. 8 Characters)");
+            password.setError(getText(R.string.min_eight_characters));
             return false;
         }
         password.setError(null);

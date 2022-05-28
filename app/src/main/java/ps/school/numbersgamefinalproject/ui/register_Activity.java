@@ -33,12 +33,13 @@ import java.util.Calendar;
 import java.util.Date;
 
 import ps.school.numbersgamefinalproject.R;
+import ps.school.numbersgamefinalproject.constant.Constant;
 import ps.school.numbersgamefinalproject.database.DBHelper;
 
 public class register_Activity extends AppCompatActivity {
     ImageView edit_img;
     RadioGroup radio_group;
-    TextInputLayout i_full_name, i_email_address, i_user_name, i_password, i_password_re;
+    TextInputLayout input_full_name, input_email_address, input_user_name, input_password_register, input_password_re;
     RadioButton male, female;
     Button save;
     String date;
@@ -53,11 +54,11 @@ public class register_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         edit_img = findViewById(R.id.edit_img);
-        i_full_name = findViewById(R.id.full_name);
-        i_email_address = findViewById(R.id.email_address);
-        i_user_name = findViewById(R.id.user_name);
-        i_password = findViewById(R.id.password);
-        i_password_re = findViewById(R.id.password_re);
+        input_full_name = findViewById(R.id.full_name);
+        input_email_address = findViewById(R.id.email_address);
+        input_user_name = findViewById(R.id.user_name);
+        input_password_register = findViewById(R.id.password);
+        input_password_re = findViewById(R.id.password_re);
 
         radio_group = findViewById(R.id.radio_group);
         spinner_country = findViewById(R.id.spinner_country);
@@ -71,11 +72,11 @@ public class register_Activity extends AppCompatActivity {
         Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(),
                 R.anim.animeion2);
         edit_img.startAnimation(animation1);
-        i_full_name.startAnimation(animation1);
-        i_email_address.startAnimation(animation1);
-        i_user_name.startAnimation(animation1);
-        i_password.startAnimation(animation1);
-        i_password_re.startAnimation(animation1);
+        input_full_name.startAnimation(animation1);
+        input_email_address.startAnimation(animation1);
+        input_user_name.startAnimation(animation1);
+        input_password_register.startAnimation(animation1);
+        input_password_re.startAnimation(animation1);
         spinner_country.startAnimation(animation1);
         radio_group.startAnimation(animation1);
         male.startAnimation(animation1);
@@ -112,8 +113,8 @@ public class register_Activity extends AppCompatActivity {
 //                    }
 //                });
 
-        SharedPreferences sharedPreferences = getSharedPreferences("Save", Context.MODE_PRIVATE);
-        boolean s1 = sharedPreferences.getBoolean("login", false);
+        SharedPreferences sharedPreferences = getSharedPreferences(Constant.SAVE, Context.MODE_PRIVATE);
+        boolean s1 = sharedPreferences.getBoolean(Constant.LOGIN, false);
         if (s1) {
             Intent intent = new Intent(getApplicationContext(), Login_Activity.class);
             startActivity(intent);
@@ -126,14 +127,15 @@ public class register_Activity extends AppCompatActivity {
             public void onClick(View view) {
 
 
-                String userName = i_user_name.getEditText().getText().toString().trim();
-                String emailAddress = i_email_address.getEditText().getText().toString().trim();
-                String fullName = i_full_name.getEditText().getText().toString().trim();
-                String password_now = i_password.getEditText().getText().toString();
-                String rePassword = i_password_re.getEditText().getText().toString();
+                String userName = input_user_name.getEditText().getText().toString().trim();
+                String emailAddress = input_email_address.getEditText().getText().toString().trim();
+                String fullName = input_full_name.getEditText().getText().toString().trim();
+                String password_now = input_password_register.getEditText().getText().toString();
+                String rePassword = input_password_re.getEditText().getText().toString();
 
 
-                if (validateUserName(userName) && validateFullName(fullName) && validateEmail(emailAddress) && validatePassword(password_now, rePassword)) {
+
+                if (validateFullName(fullName) && validateEmail(emailAddress) && validateUserName(userName) && validatePassword(password_now, rePassword)) {
 
 
                     if (validateGender().equals("null")) {
@@ -154,9 +156,9 @@ public class register_Activity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), R.string.registered_successfully, Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getApplicationContext(), Login_Activity.class);
                             SharedPreferences.Editor myEdit = sharedPreferences.edit();
-                            myEdit.putBoolean("rem", radio_group.isClickable());
-                            myEdit.putString("user", userName);
-                            myEdit.putString("password", password_now);
+                            myEdit.putBoolean(Constant.REMEMBER, radio_group.isClickable());
+                            myEdit.putString(Constant.USER, userName);
+                            myEdit.putString(Constant.PASSWORD, password_now);
                             myEdit.apply();
                             startActivity(intent);
                             finish();
@@ -223,79 +225,49 @@ public class register_Activity extends AppCompatActivity {
 
 //هين حطينا لما يضغط على الشهر يظهر في Textview اسم الشهر
 
-//
-    //
-    //
-    //
-
-
-//
-//
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if (requestCode == requests_code) {
-//            if (resultCode == register_Activity.RESULT_OK) {
-//                final Uri uri = data.getData();
-//                InputStream in;
-//                try {
-//                    in = getContentResolver().openInputStream(uri);
-//                    final Bitmap selected_img = BitmapFactory.decodeStream(in);
-//                    edit_img.setImageBitmap(selected_img);
-//                } catch (FileNotFoundException e) {
-//                    e.printStackTrace();
-//                    Toast.makeText(this, R.string.an_error_occured, Toast.LENGTH_LONG).show();
-//                }
-//            } else {
-//                Toast.makeText(this, R.string.you_didnot_pick_an_image, Toast.LENGTH_LONG).show();
-//            }
-//        }
-//    }
-//
-
 
     private Boolean validateUserName(String userName) {
 
         if (userName.isEmpty()) {
-            i_user_name.setError(getString(R.string.enterName));
+            input_user_name.setError(getString(R.string.enterName));
             return false;
         }
-        i_user_name.setError(null);
+        input_user_name.setError(null);
         return true;
     }
 
     private Boolean validateFullName(String fullName) {
 
         if (fullName.isEmpty()) {
-            i_full_name.setError(getString(R.string.enterfullname));
+            input_full_name.setError(getString(R.string.enterfullname));
             return false;
         }
-        i_full_name.setError(null);
+        input_full_name.setError(null);
         return true;
     }
 
     private Boolean validateEmail(String email) {
 
         if (email.isEmpty()) {
-            i_email_address.setError(getString(R.string.emailAddress));
+            input_email_address.setError(getString(R.string.emailAddress));
             return false;
         }
         String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
         if (!email.matches(emailPattern)) {
-            i_email_address.setError(getString(R.string.emailAddress));
+            input_email_address.setError(getString(R.string.emailAddress));
             return false;
         }
-        i_email_address.setError(null);
+        input_email_address.setError(null);
         return true;
     }
 
     private String validateGender() {
 
         String gender = String.valueOf(radio_group.getCheckedRadioButtonId());
-        if (gender.equals("2131362060")) {
+        if (gender.equals("2131362061")) {
 
             return "male";
-        } else if (gender.equals("2131361991")) {
+        } else if (gender.equals("2131361992")) {
             return "female";
         } else if (gender.equals("-1")) {
             return "null";
@@ -306,25 +278,25 @@ public class register_Activity extends AppCompatActivity {
 
     private Boolean validatePassword(String password_now, String rePassword) {
         if (password_now.isEmpty()) {
-            i_password.setError(getString(R.string.userpasseord));
+            input_password_register.setError(getString(R.string.userpasseord));
             return false;
         }
         if (rePassword.isEmpty()) {
-            i_password_re.setError(getString(R.string.userpasseordre));
+            input_password_re.setError(getString(R.string.userpasseordre));
             return false;
         }
         if (!(password_now.equals(rePassword))) {
-            i_password_re.setError(getString(R.string.comformPassword));
-            i_password.setError(getString(R.string.comformPassword));
+            input_password_re.setError(getString(R.string.comformPassword));
+            input_password_register.setError(getString(R.string.comformPassword));
             return false;
         }
         if (password_now.length() < 8) {
 //            في مشكلة انجليزي
-            i_password.setError(getString(R.string.min_eight_characters));
+            input_password_register.setError(getString(R.string.min_eight_characters));
             return false;
         }
-        i_password.setError(null);
-        i_password_re.setError(null);
+        input_password_register.setError(null);
+        input_password_re.setError(null);
         return true;
     }
 }

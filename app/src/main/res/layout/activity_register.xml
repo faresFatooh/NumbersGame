@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/shep_setings"
+    android:background="@drawable/shep_activity"
     android:gravity="center"
     tools:context=".ui.register_Activity">
 
@@ -21,7 +21,7 @@
         app:layout_constraintVertical_bias="1.0">
 
         <LinearLayout
-            android:id="@+id/lay"
+            android:id="@+id/Layout_register"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -55,6 +55,7 @@
                     app:boxCornerRadiusTopStart="15dp"
                     app:boxStrokeColor="@color/mtrl_textinput_default_box_stroke_color"
                     app:boxStrokeWidth="3dp"
+                    app:errorTextColor="#304FFE"
                     app:hintAnimationEnabled="true"
                     app:hintTextColor="@color/yellow">
 
@@ -99,6 +100,7 @@
                 app:boxCornerRadiusTopStart="15dp"
                 app:boxStrokeColor="@color/yellow"
                 app:boxStrokeWidth="3dp"
+                app:errorTextColor="#304FFE"
                 app:hintAnimationEnabled="true"
                 app:hintTextColor="@color/yellow">
 
@@ -133,6 +135,7 @@
                 app:boxCornerRadiusTopEnd="1dp"
                 app:boxCornerRadiusTopStart="15dp"
                 app:boxStrokeWidth="3dp"
+                app:errorTextColor="#304FFE"
                 app:hintAnimationEnabled="true"
                 app:hintTextColor="@color/yellow">
 
@@ -175,6 +178,7 @@
                     app:boxCornerRadiusTopEnd="1dp"
                     app:boxCornerRadiusTopStart="15dp"
                     app:boxStrokeWidth="3dp"
+                    app:errorTextColor="#304FFE"
                     app:hintAnimationEnabled="true"
                     app:hintTextColor="@color/yellow">
 
@@ -211,6 +215,7 @@
                     app:boxCornerRadiusTopEnd="10dp"
                     app:boxCornerRadiusTopStart="1dp"
                     app:boxStrokeWidth="3dp"
+                    app:errorTextColor="#304FFE"
                     app:hintAnimationEnabled="true"
                     app:hintTextColor="@color/yellow">
 
@@ -261,7 +266,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-
                 android:orientation="horizontal">
 
                 <RadioButton

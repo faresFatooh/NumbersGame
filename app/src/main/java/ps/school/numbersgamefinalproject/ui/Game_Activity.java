@@ -30,6 +30,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 import ps.school.numbersgamefinalproject.R;
+import ps.school.numbersgamefinalproject.constant.Constant;
 import ps.school.numbersgamefinalproject.database.DBHelper;
 import ps.school.numbersgamefinalproject.viewmodel.Question;
 import ps.school.numbersgamefinalproject.viewmodel.Util;
@@ -42,7 +43,7 @@ public class Game_Activity extends AppCompatActivity {
     //  عرفنا هين ال TextView وعرفنا كمان ArrayList عشان نحط الأرقام فيها
     TextView number1, number2, number3, number4, number5, number6, number7, number8, number9;
     ArrayList<String> game = new ArrayList<String>();
-    String Entere;
+    String Enter_text;
     Context context = this;
     DBHelper db;
 
@@ -82,8 +83,8 @@ public class Game_Activity extends AppCompatActivity {
         tv_name.startAnimation(animation1);
 
 
-        SharedPreferences sharedPreferences = getSharedPreferences("Save", MODE_PRIVATE);
-        String user = sharedPreferences.getString("user", "");
+        SharedPreferences sharedPreferences = getSharedPreferences(Constant.SAVE, MODE_PRIVATE);
+        String user = sharedPreferences.getString(Constant.USER, "");
         toolbar.inflateMenu(R.menu.tools_menu);
         toolbar.setSubtitle(R.string.new_game);
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
@@ -95,9 +96,9 @@ public class Game_Activity extends AppCompatActivity {
                     startActivity(intent);
                     return true;
                 } else if (item.getItemId() == R.id.out) {
-                    SharedPreferences sharedPreferences = getSharedPreferences("Save", MODE_PRIVATE);
+                    SharedPreferences sharedPreferences = getSharedPreferences(Constant.SAVE, MODE_PRIVATE);
                     SharedPreferences.Editor myEdit = sharedPreferences.edit();
-                    myEdit.putBoolean("rem", false);
+                    myEdit.putBoolean(Constant.REMEMBER, false);
                     myEdit.apply();
                     Intent intent2 = new Intent(getApplicationContext(), Login_Activity.class);
                     mediaPlayer.pause();
@@ -144,7 +145,7 @@ public class Game_Activity extends AppCompatActivity {
                     Toast.makeText(context, R.string.enter_a_umber, Toast.LENGTH_SHORT).show();
                 } else {
 
-                    if (Enter.equals(Entere)) {
+                    if (Enter.equals(Enter_text)) {
                         MediaPlayer mediaPlayer1 = MediaPlayer.create(Game_Activity.this, R.raw.correct);
                         mediaPlayer1.start();
                         new AlertDialog.Builder(context)
@@ -226,8 +227,8 @@ public class Game_Activity extends AppCompatActivity {
         //بعدها استدعينا كلاس الQuestion
         Question question = Util.generateQuestion();
         //هين عرفنا questions   من نوع ARRAY
-        Entere = String.valueOf(question.getHiddenNumber());
-        Toast.makeText(getApplicationContext(), Entere, Toast.LENGTH_LONG).show();
+        Enter_text = String.valueOf(question.getHiddenNumber());
+        Toast.makeText(getApplicationContext(), Enter_text, Toast.LENGTH_LONG).show();
         String[][] questions = question.getQuestion();
         // بعدها عملنا الفور لوب عشان تطبع محتويات الأري
 

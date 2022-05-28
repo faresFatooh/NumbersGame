@@ -14,15 +14,15 @@ import ps.school.numbersgamefinalproject.R;
 import ps.school.numbersgamefinalproject.model.History;
 
 public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHolder> {
-    private ArrayList<History> listdata;
+    private ArrayList<History> listData;
 
     // RecyclerView recyclerView;
-    public HistoryAdapter(ArrayList<History> listdata) {
-        this.listdata = listdata;
+    public HistoryAdapter(ArrayList<History> listData) {
+        this.listData = listData;
     }
 
     public HistoryAdapter() {
-        this.listdata = listdata;
+        this.listData = listData;
     }
 
     @NonNull
@@ -36,7 +36,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final History myListData = listdata.get(position);
+        final History myListData = listData.get(position);
         holder.textView1.setText(myListData.getUsername());
         holder.textView2.setText(myListData.getDate());
         holder.show_item_score.setText(myListData.getScore());
@@ -45,7 +45,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
 
     @Override
     public int getItemCount() {
-        return listdata.size();
+        return listData.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -55,8 +55,8 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
 
         public ViewHolder(View itemView) {
             super(itemView);
-            this.textView1 = itemView.findViewById(R.id.textView1);
-            this.textView2 = itemView.findViewById(R.id.textView2);
+            this.textView1 = itemView.findViewById(R.id.text_view_full);
+            this.textView2 = itemView.findViewById(R.id.text_view_date);
             this.show_item_score = itemView.findViewById(R.id.show_item_score);
         }
     }

@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.textfield.TextInputLayout;
 
 import ps.school.numbersgamefinalproject.R;
+import ps.school.numbersgamefinalproject.constant.Constant;
 import ps.school.numbersgamefinalproject.database.DBHelper;
 
 public class Login_Activity extends AppCompatActivity {
@@ -50,11 +51,11 @@ public class Login_Activity extends AppCompatActivity {
         input_password_login.startAnimation(animation1);
         input_user_name_login.startAnimation(animation1);
 
-        SharedPreferences sharedPreferences = getSharedPreferences("Save", MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences(Constant.SAVE, MODE_PRIVATE);
         SharedPreferences.Editor myEdit = sharedPreferences.edit();
-        boolean rem = sharedPreferences.getBoolean("rem", false);
-        String user = sharedPreferences.getString("user", "");
-        String password_this = sharedPreferences.getString("password", "");
+        boolean rem = sharedPreferences.getBoolean(Constant.REMEMBER, false);
+        String user = sharedPreferences.getString(Constant.USER, "");
+        String password_this = sharedPreferences.getString(Constant.PASSWORD, "");
         myEdit.apply();
 
         user_name_login = findViewById(R.id.user_name_login);
@@ -80,12 +81,12 @@ public class Login_Activity extends AppCompatActivity {
                 validatePassword(password);
 
                 if (!password.isEmpty() && !userName.isEmpty()) {
-                    Boolean checkuserpass = DB.checkusernamepassword(userName, password);
-                    if (checkuserpass == true) {
+                    Boolean checkUserPassword = DB.checkusernamepassword(userName, password);
+                    if (checkUserPassword == true) {
                         Toast.makeText(Login_Activity.this, R.string.sign_in_successful, Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(), Game_Activity.class);
                         SharedPreferences.Editor myEdit = sharedPreferences.edit();
-                        myEdit.putBoolean("rem", remember.isChecked());
+                        myEdit.putBoolean(Constant.REMEMBER, remember.isChecked());
                         myEdit.apply();
                         startActivity(intent);
                         finish();

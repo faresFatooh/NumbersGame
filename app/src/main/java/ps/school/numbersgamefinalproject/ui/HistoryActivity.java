@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 import ps.school.numbersgamefinalproject.R;
 import ps.school.numbersgamefinalproject.adapter.HistoryAdapter;
+import ps.school.numbersgamefinalproject.constant.Constant;
 import ps.school.numbersgamefinalproject.database.DBHelper;
 import ps.school.numbersgamefinalproject.model.History;
 
@@ -23,8 +24,8 @@ public class HistoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
 
-        SharedPreferences sharedPreferences = getSharedPreferences("Save", MODE_PRIVATE);
-        String user = sharedPreferences.getString("user", "");
+        SharedPreferences sharedPreferences = getSharedPreferences(Constant.SAVE, MODE_PRIVATE);
+        String user = sharedPreferences.getString(Constant.USER, "");
 
         listView = findViewById(R.id.re_game_history);
         db = new DBHelper(getApplicationContext());
