@@ -87,7 +87,8 @@ public class register_Activity extends AppCompatActivity {
         ActivityResultLauncher launcher = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
                     @Override
                     public void onActivityResult(Uri result) {
-                        if (requests_code == register_Activity.RESULT_OK) {
+
+                        if (result != null) {
                             edit_img.setImageURI(result);
                             image = true;
                         } else {
@@ -168,7 +169,7 @@ public class register_Activity extends AppCompatActivity {
                                     finish();
                                 }
                             }
-                        }else {
+                        } else {
                             Toast.makeText(register_Activity.this, "select image first", Toast.LENGTH_SHORT).show();
 
                         }
