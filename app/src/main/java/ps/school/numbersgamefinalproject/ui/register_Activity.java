@@ -46,6 +46,7 @@ public class register_Activity extends AppCompatActivity {
     Spinner spinner_country;
     DBHelper DB;
     TextView dateBaker;
+    boolean image;
 
     public static final int requests_code = 1;
 
@@ -59,7 +60,6 @@ public class register_Activity extends AppCompatActivity {
         input_user_name = findViewById(R.id.user_name);
         input_password_register = findViewById(R.id.password);
         input_password_re = findViewById(R.id.password_re);
-
         radio_group = findViewById(R.id.radio_group);
         spinner_country = findViewById(R.id.spinner_country);
         male = findViewById(R.id.male);
@@ -87,7 +87,12 @@ public class register_Activity extends AppCompatActivity {
         ActivityResultLauncher launcher = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
                     @Override
                     public void onActivityResult(Uri result) {
-                        edit_img.setImageURI(result);
+                        if (requests_code == register_Activity.RESULT_OK) {
+                            edit_img.setImageURI(result);
+                            image = true;
+                        } else {
+                            image = false;
+                        }
 
                     }
                 }
@@ -134,34 +139,45 @@ public class register_Activity extends AppCompatActivity {
                 String rePassword = input_password_re.getEditText().getText().toString();
 
                 if (validateFullName(fullName) && validateEmail(emailAddress) && validateUserName(userName) && validatePassword(password_now, rePassword)) {
+                    if (!dateBaker.getText().toString().equals("birthdate")) {
 
+                        if (image) {
+                            if (validateGender().equals("null")) {
+                                Toast.makeText(getApplicationContext(), R.string.gender, Toast.LENGTH_SHORT).show();
+                                String gender = String.valueOf(radio_group.getCheckedRadioButtonId());
+                                Toast.makeText(getApplicationContext(), gender, Toast.LENGTH_SHORT).show();
 
-                    if (validateGender().equals("null")) {
-                        Toast.makeText(getApplicationContext(), R.string.gender, Toast.LENGTH_SHORT).show();
-                        String gender = String.valueOf(radio_group.getCheckedRadioButtonId());
-                        Toast.makeText(getApplicationContext(), gender, Toast.LENGTH_SHORT).show();
+                            } else {
+                                Boolean insert = false;
+                                Boolean checkuser = DB.checkusername(userName);
+                                if (!checkuser) {
+                                    insert = DB.insertData(userName, password_now);
+                                } else {
+                                    Toast.makeText(getApplicationContext(), R.string.the_user_name_is_already_Exists, Toast.LENGTH_SHORT).show();
+                                }
+                                Boolean insertDetails = DB.insertDetails(userName, fullName, emailAddress, date, "", validateGender(), "0");
+                                if (insert && insertDetails) {
+                                    Toast.makeText(getApplicationContext(), R.string.registered_successfully, Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(getApplicationContext(), Login_Activity.class);
+                                    SharedPreferences.Editor myEdit = sharedPreferences.edit();
+                                    myEdit.putBoolean(Constant.REMEMBER, radio_group.isClickable());
+                                    myEdit.putString(Constant.USER, userName);
+                                    myEdit.putString(Constant.PASSWORD, password_now);
+                                    myEdit.apply();
+                                    startActivity(intent);
+                                    finish();
+                                }
+                            }
+                        }else {
+                            Toast.makeText(register_Activity.this, "select image first", Toast.LENGTH_SHORT).show();
+
+                        }
+
 
                     } else {
-                        Boolean insert = false;
-                        Boolean checkuser = DB.checkusername(userName);
-                        if (!checkuser) {
-                            insert = DB.insertData(userName, password_now);
-                        } else {
-                            Toast.makeText(getApplicationContext(), R.string.the_user_name_is_already_Exists, Toast.LENGTH_SHORT).show();
-                        }
-                        Boolean insertDetails = DB.insertDetails(userName, fullName, emailAddress, date, "", validateGender(), "0");
-                        if (insert && insertDetails) {
-                            Toast.makeText(getApplicationContext(), R.string.registered_successfully, Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(getApplicationContext(), Login_Activity.class);
-                            SharedPreferences.Editor myEdit = sharedPreferences.edit();
-                            myEdit.putBoolean(Constant.REMEMBER, radio_group.isClickable());
-                            myEdit.putString(Constant.USER, userName);
-                            myEdit.putString(Constant.PASSWORD, password_now);
-                            myEdit.apply();
-                            startActivity(intent);
-                            finish();
-                        }
+                        Toast.makeText(register_Activity.this, "Enter birthdate", Toast.LENGTH_SHORT).show();
                     }
+
 
                 }
             }
